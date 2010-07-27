@@ -14,14 +14,13 @@
 @implementation AMDocument
 @synthesize site;
 
-- (id)init
+- (void)dealloc
 {
-  self = [super init];
-  if (self) {
-    site = [[AMSite alloc] init];
-  }
-  return self;
+  self.site = nil;
+  [super dealloc];
 }
+
+#pragma mark -
 
 - (void)makeWindowControllers
 {
@@ -29,6 +28,8 @@
   [self addWindowController:controller];
   [controller release];
 }
+
+#pragma mark -
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
