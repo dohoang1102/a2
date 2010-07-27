@@ -64,4 +64,9 @@
   return [[self localizedName] uppercaseString];
 }
 
+- (NSUInteger)indexOfSectionEntry:(id<AMSectionEntry>)entry
+{
+  return [entries indexOfObject:entry];
+}
+
 @end

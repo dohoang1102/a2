@@ -25,4 +25,5 @@
 
 - (NSUInteger)countOfSectionEntries;
 - (id<AMSectionEntry>)objectInSectionEntriesAtIndex:(NSUInteger)index;
+- (NSUInteger)indexOfSectionEntry:(id<AMSectionEntry>)entry;
 @end

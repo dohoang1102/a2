@@ -66,7 +66,9 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
   if(context == &AMSidebarViewControllerContext) {
-    [self selectionIndexPathsDidChange];
+    if(object == self) {
+      [self selectionIndexPathsDidChange];      
+    }
   } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
   }

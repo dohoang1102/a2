@@ -66,4 +66,9 @@
   return [sections objectAtIndex:index];
 }
 
+- (NSUInteger)indexOfSection:(AMSection *)section
+{
+  return [sections indexOfObject:section];
+}
+
 @end
