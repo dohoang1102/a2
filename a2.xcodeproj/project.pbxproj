@@ -20,6 +20,9 @@
 		2199B15B11FF7223002E67A7 /* AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B15A11FF7223002E67A7 /* AMSectionNode.m */; };
 		2199B18011FF72F5002E67A7 /* AMSections+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B17F11FF72F5002E67A7 /* AMSections+AMSectionNode.m */; };
 		2199B18311FF72FB002E67A7 /* AMSection+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */; };
+		2199B35711FF8698002E67A7 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199B35611FF8698002E67A7 /* Login.xib */; };
+		2199B35B11FF8B44002E67A7 /* AMLoginSheetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B35A11FF8B44002E67A7 /* AMLoginSheetWindowController.m */; };
+		2199B37811FF8D93002E67A7 /* NSWindow+AMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B37711FF8D93002E67A7 /* NSWindow+AMAdditions.m */; };
 		21E035A911FE05C30043F09B /* AMSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035A811FE05C30043F09B /* AMSite.m */; };
 		21E035B211FE074F0043F09B /* AMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035B111FE074F0043F09B /* AMServer.m */; };
 		21E0363411FE0E0D0043F09B /* AMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */; };
@@ -65,6 +68,11 @@
 		2199B17F11FF72F5002E67A7 /* AMSections+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSections+AMSectionNode.m"; sourceTree = "<group>"; };
 		2199B18111FF72FB002E67A7 /* AMSection+AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSection+AMSectionNode.h"; sourceTree = "<group>"; };
 		2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSection+AMSectionNode.m"; sourceTree = "<group>"; };
+		2199B35611FF8698002E67A7 /* Login.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Login.xib; sourceTree = "<group>"; };
+		2199B35911FF8B44002E67A7 /* AMLoginSheetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLoginSheetWindowController.h; sourceTree = "<group>"; };
+		2199B35A11FF8B44002E67A7 /* AMLoginSheetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLoginSheetWindowController.m; sourceTree = "<group>"; };
+		2199B37611FF8D93002E67A7 /* NSWindow+AMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+AMAdditions.h"; sourceTree = "<group>"; };
+		2199B37711FF8D93002E67A7 /* NSWindow+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+AMAdditions.m"; sourceTree = "<group>"; };
 		21E035A711FE05C30043F09B /* AMSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSite.h; sourceTree = "<group>"; };
 		21E035A811FE05C30043F09B /* AMSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSite.m; sourceTree = "<group>"; };
 		21E035B011FE074F0043F09B /* AMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMServer.h; sourceTree = "<group>"; };
@@ -193,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				2199B34D11FF864B002E67A7 /* View */,
+				2199B35911FF8B44002E67A7 /* AMLoginSheetWindowController.h */,
+				2199B35A11FF8B44002E67A7 /* AMLoginSheetWindowController.m */,
 				21E0363211FE0E0D0043F09B /* AMDocumentWindowController.h */,
 				21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */,
 				2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */,
@@ -208,6 +218,8 @@
 		2199B34D11FF864B002E67A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2199B37611FF8D93002E67A7 /* NSWindow+AMAdditions.h */,
+				2199B37711FF8D93002E67A7 /* NSWindow+AMAdditions.m */,
 				21E036C411FE12870043F09B /* NSView+AMAdditions.h */,
 				21E036C511FE12870043F09B /* NSView+AMAdditions.m */,
 			);
@@ -286,6 +298,7 @@
 				21E0366F11FE0FE00043F09B /* Sidebar.xib */,
 				2199AF0211FF57A1002E67A7 /* Blank.xib */,
 				2199AE6A11FF510A002E67A7 /* Snippet.xib */,
+				2199B35611FF8698002E67A7 /* Login.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -349,6 +362,7 @@
 				21E0367011FE0FE00043F09B /* Sidebar.xib in Resources */,
 				2199AE6B11FF510A002E67A7 /* Snippet.xib in Resources */,
 				2199AF0311FF57A1002E67A7 /* Blank.xib in Resources */,
+				2199B35711FF8698002E67A7 /* Login.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +395,8 @@
 				2199B15B11FF7223002E67A7 /* AMSectionNode.m in Sources */,
 				2199B18011FF72F5002E67A7 /* AMSections+AMSectionNode.m in Sources */,
 				2199B18311FF72FB002E67A7 /* AMSection+AMSectionNode.m in Sources */,
+				2199B35B11FF8B44002E67A7 /* AMLoginSheetWindowController.m in Sources */,
+				2199B37811FF8D93002E67A7 /* NSWindow+AMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

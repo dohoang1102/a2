@@ -7,13 +7,13 @@
 //
 
 #import "AMDocumentWindowController.h"
+#import "AMLoginSheetWindowController.h"
 #import "AMSidebarViewController.h"
 #import "NSView+AMAdditions.h"
 #import "AMSnippetsSection.h"
 #import "AMSnippetViewController.h"
 #import "AMBlankViewController.h"
 #import "AMViewControllerSwitch.h"
-
 
 static NSDictionary *AMSectionViewControllerClasses;
 
@@ -51,6 +51,13 @@ static NSDictionary *AMSectionViewControllerClasses;
 
   [sidebarView setController:sidebar];
   [self setContentViewControllerForSection:nil sectionEntry:nil];
+}
+
+- (IBAction)showWindow:(id)sender
+{
+  [super showWindow:sender];
+  
+  [AMLoginSheetWindowController presentLoginSheetForWindow:[self window] withModel:nil delegate:nil];
 }
 
 - (void)dealloc
