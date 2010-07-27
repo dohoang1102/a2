@@ -84,7 +84,11 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
     if([representedObject conformsToProtocol:@protocol(AMSectionEntry)]) {
       id<AMSectionEntry> sectionEntry = representedObject;
       AMSection *section = [[item parentNode] representedObject];
-      return [delegate sidebarViewController:self willSelectSection:section sectionEntry:sectionEntry];
+      BOOL shouldSelect = [delegate sidebarViewController:self willSelectSection:section sectionEntry:sectionEntry];
+      if(!shouldSelect) {
+        NSBeep();
+      }
+      return shouldSelect;
     }
   }
   return NO;

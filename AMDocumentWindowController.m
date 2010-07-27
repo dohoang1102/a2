@@ -11,6 +11,7 @@
 #import "NSView+AMAdditions.h"
 #import "AMSnippetsSection.h"
 #import "AMSnippetViewController.h"
+#import "AMBlankViewController.h"
 
 
 static NSDictionary *AMSectionViewControllerClasses;
@@ -18,6 +19,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 
 @interface AMDocumentWindowController ()
 @property(nonatomic, readwrite, retain) NSViewController *contentViewController;
+- (void)setContentViewControllerForSection:(AMSection *)section sectionEntry:(id<AMSectionEntry>)entry;
 @end
 
 @implementation AMDocumentWindowController
@@ -48,6 +50,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 
   [sidebar loadView];
   [sidebarView addSubview:[sidebar view] resizeToFit:YES];
+  [self setContentViewControllerForSection:nil sectionEntry:nil];
 }
 
 - (void)dealloc
@@ -77,6 +80,21 @@ static NSDictionary *AMSectionViewControllerClasses;
   }
 }
 
+- (void)setContentViewControllerForSection:(AMSection *)section sectionEntry:(id<AMSectionEntry>)entry
+{
+  Class controllerClass = [self viewControllerClassForSection:section];
+  NSViewController *controller = [[controllerClass alloc] init];
+  if(controller) {
+    [controller setRepresentedObject:entry];
+    [self setContentViewController:controller];
+    [controller release];
+  } else {
+    AMBlankViewController *controller = [[AMBlankViewController alloc] init];
+    [self setContentViewController:controller];
+    [controller release];
+  }  
+}
+
 #pragma mark -
 #pragma mark Split view delegate
 
@@ -93,20 +111,14 @@ static NSDictionary *AMSectionViewControllerClasses;
             willSelectSection:(AMSection *)section 
                  sectionEntry:(id<AMSectionEntry>)entry
 {
-  return YES;
+  return [self viewControllerClassForSection:section] != nil;
 }
 
 - (void)sidebarViewController:(AMSidebarViewController *)sender
              didSelectSection:(AMSection *)section 
                  sectionEntry:(id<AMSectionEntry>)entry
 {
-  Class controllerClass = [self viewControllerClassForSection:section];
-  NSViewController *controller = [[controllerClass alloc] init];
-  if(controller) {
-    [controller setRepresentedObject:entry];
-    [self setContentViewController:controller];
-    [controller release];
-  }
+  [self setContentViewControllerForSection:section sectionEntry:entry];
 }
 
 @end
