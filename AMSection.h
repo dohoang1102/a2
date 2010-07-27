@@ -7,24 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AMSectionNode.h"
 
-
-@protocol AMSectionEntry;
 
 @interface AMSection : NSObject {
+  NSMutableArray *models;
 }
 
-@end
+- (NSUInteger)countOfModels;
+- (id)objectInModelsAtIndex:(NSUInteger)index;
+- (NSArray *)modelsAtIndexes:(NSIndexSet *)indexes;
+- (void)insertObject:(id)object inModelsAtIndex:(NSUInteger)index;
+- (void)removeObjectFromModelsAtIndex:(NSUInteger)index;
+- (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withModels:(NSArray *)objects;
+- (void)insertModels:(NSArray *)objects atIndexes:(NSIndexSet *)indexes;
+- (void)removeModelsAtIndexes:(NSIndexSet *)indexes;
 
-@interface AMSection (AMSectionTreeNode) <AMSectionNode>
 @end
 
 @interface AMSection (AMSectionAbstract)
 - (NSString *)localizedName;
-
-- (NSUInteger)countOfSectionEntries;
-- (id<AMSectionEntry>)objectInSectionEntriesAtIndex:(NSUInteger)index;
-- (NSUInteger)indexOfSectionEntry:(id<AMSectionEntry>)entry;
-
 @end

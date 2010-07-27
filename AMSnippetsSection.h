@@ -11,7 +11,6 @@
 
 
 @interface AMSnippetsSection : AMSection {
-  NSMutableArray *snippets;
 }
 
 @end

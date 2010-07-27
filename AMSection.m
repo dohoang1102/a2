@@ -9,29 +9,76 @@
 #import "AMSection.h"
 
 
-@implementation AMSection
+@interface AMSection ()
+@property(nonatomic, readwrite, retain) NSMutableArray *models;
 @end
 
-@implementation AMSection (AMSectionTreeNode)
+@implementation AMSection
+@synthesize models;
 
-- (NSUInteger)countOfNodes
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
 {
-  return [self countOfSectionEntries];
+  if([key isEqualToString:@"sectionEntries"]) {
+    return [NSSet setWithObject:@"models"];
+  }
+  return [super keyPathsForValuesAffectingValueForKey:key];
 }
 
-- (id)objectInNodesAtIndex:(NSUInteger)index
+#pragma mark -
+
+- (id)init
 {
-  return [self objectInSectionEntriesAtIndex:index];
+  if(self = [super init]) {
+    models = [[NSMutableArray alloc] init];
+  }
+  return self;
 }
 
-- (BOOL)isLeafNode
+- (void)dealloc
 {
-  return NO;
+  self.models = nil;
+  [super dealloc];
 }
 
-- (NSString *)nodeLocalizedName
+#pragma mark -
+
+- (NSUInteger)countOfModels
 {
-  return [self localizedName];
+  return [models count];
+}
+- (id)objectInModelsAtIndex:(NSUInteger)index
+{
+  return [models objectAtIndex:index];
+}
+
+- (NSArray *)modelsAtIndexes:(NSIndexSet *)indexes
+{
+  return [models objectsAtIndexes:indexes];
+}
+
+- (void)insertObject:(id)object inModelsAtIndex:(NSUInteger)index
+{
+  [models insertObject:object atIndex:index];
+}
+
+- (void)removeObjectFromModelsAtIndex:(NSUInteger)index
+{
+  [models removeObjectAtIndex:index];
+}
+
+- (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withModels:(NSArray *)objects
+{
+  [models replaceObjectsAtIndexes:indexes withObjects:objects];
+}
+
+- (void)insertModels:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
+{
+  [models insertObjects:objects atIndexes:indexes];
+}
+
+- (void)removeModelsAtIndexes:(NSIndexSet *)indexes
+{
+  [models removeObjectsAtIndexes:indexes];
 }
 
 @end

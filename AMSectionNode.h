@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @protocol AMSectionNode
 - (NSUInteger)countOfNodes;
 - (id)objectInNodesAtIndex:(NSUInteger)index;

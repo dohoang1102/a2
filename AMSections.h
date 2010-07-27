@@ -7,11 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AMSectionNode.h"
 
 
 @class AMSection;
-@protocol AMSectionEntry;
 
 @interface AMSections : NSObject {
   NSArray *sections;

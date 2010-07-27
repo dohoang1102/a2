@@ -1,29 +1,29 @@
 //
-//  AMSections+AMSectionNode.m
+//  AMSection+AMSectionNode.m
 //  a2
 //
 //  Created by ampatspell on 7/27/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "AMSections+AMSectionNode.h"
+#import "AMSection+AMSectionNode.h"
 
 
-@implementation AMSections (AMSectionNode)
+@implementation AMSection (AMSectionNode)
 
 + (NSSet *)keyPathsForValuesAffectingNodes
 {
-  return [NSSet setWithObject:@"sections"];
+  return [NSSet setWithObject:@"sectionEntries"];
 }
 
 - (NSUInteger)countOfNodes
 {
-  return [self countOfSections];
+  return [self countOfModels];
 }
 
 - (id)objectInNodesAtIndex:(NSUInteger)index
 {
-  return [self objectInSectionsAtIndex:index];
+  return [self objectInModelsAtIndex:index];
 }
 
 - (BOOL)isLeafNode
@@ -33,7 +33,7 @@
 
 - (NSString *)nodeLocalizedName
 {
-  return nil;
+  return [self localizedName];
 }
 
 @end

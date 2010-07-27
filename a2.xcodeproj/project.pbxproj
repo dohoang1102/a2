@@ -17,7 +17,9 @@
 		2199AFDA11FF623D002E67A7 /* AMSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFD911FF623D002E67A7 /* AMSnippet.m */; };
 		2199AFDD11FF6245002E67A7 /* AMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFDC11FF6245002E67A7 /* AMModel.m */; };
 		2199AFF411FF6315002E67A7 /* AMSnippet+AMSectionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFF311FF6315002E67A7 /* AMSnippet+AMSectionEntry.m */; };
-		2199B03711FF642E002E67A7 /* AMSections+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */; };
+		2199B15B11FF7223002E67A7 /* AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B15A11FF7223002E67A7 /* AMSectionNode.m */; };
+		2199B18011FF72F5002E67A7 /* AMSections+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B17F11FF72F5002E67A7 /* AMSections+AMSectionNode.m */; };
+		2199B18311FF72FB002E67A7 /* AMSection+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */; };
 		21E035A911FE05C30043F09B /* AMSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035A811FE05C30043F09B /* AMSite.m */; };
 		21E035B211FE074F0043F09B /* AMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035B111FE074F0043F09B /* AMServer.m */; };
 		21E0363411FE0E0D0043F09B /* AMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */; };
@@ -57,8 +59,12 @@
 		2199AFDC11FF6245002E67A7 /* AMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMModel.m; sourceTree = "<group>"; };
 		2199AFF211FF6315002E67A7 /* AMSnippet+AMSectionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSnippet+AMSectionEntry.h"; sourceTree = "<group>"; };
 		2199AFF311FF6315002E67A7 /* AMSnippet+AMSectionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSnippet+AMSectionEntry.m"; sourceTree = "<group>"; };
-		2199B03511FF642E002E67A7 /* AMSections+AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSections+AMSectionNode.h"; sourceTree = "<group>"; };
-		2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSections+AMSectionNode.m"; sourceTree = "<group>"; };
+		2199B15811FF71D7002E67A7 /* AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSectionNode.h; sourceTree = "<group>"; };
+		2199B15A11FF7223002E67A7 /* AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSectionNode.m; sourceTree = "<group>"; };
+		2199B17E11FF72F5002E67A7 /* AMSections+AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSections+AMSectionNode.h"; sourceTree = "<group>"; };
+		2199B17F11FF72F5002E67A7 /* AMSections+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSections+AMSectionNode.m"; sourceTree = "<group>"; };
+		2199B18111FF72FB002E67A7 /* AMSection+AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSection+AMSectionNode.h"; sourceTree = "<group>"; };
+		2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSection+AMSectionNode.m"; sourceTree = "<group>"; };
 		21E035A711FE05C30043F09B /* AMSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSite.h; sourceTree = "<group>"; };
 		21E035A811FE05C30043F09B /* AMSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSite.m; sourceTree = "<group>"; };
 		21E035B011FE074F0043F09B /* AMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMServer.h; sourceTree = "<group>"; };
@@ -157,6 +163,19 @@
 			name = Snippet;
 			sourceTree = "<group>";
 		};
+		2199B17D11FF72E6002E67A7 /* Tree Support */ = {
+			isa = PBXGroup;
+			children = (
+				2199B15811FF71D7002E67A7 /* AMSectionNode.h */,
+				2199B15A11FF7223002E67A7 /* AMSectionNode.m */,
+				2199B17E11FF72F5002E67A7 /* AMSections+AMSectionNode.h */,
+				2199B17F11FF72F5002E67A7 /* AMSections+AMSectionNode.m */,
+				2199B18111FF72FB002E67A7 /* AMSection+AMSectionNode.h */,
+				2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */,
+			);
+			name = "Tree Support";
+			sourceTree = "<group>";
+		};
 		21E035A511FE059E0043F09B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,10 +193,9 @@
 		21E037EB11FE26620043F09B /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				2199B17D11FF72E6002E67A7 /* Tree Support */,
 				21E037CD11FE25220043F09B /* AMSections.h */,
 				21E037CE11FE25220043F09B /* AMSections.m */,
-				2199B03511FF642E002E67A7 /* AMSections+AMSectionNode.h */,
-				2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */,
 				21E037DC11FE25CD0043F09B /* AMSection.h */,
 				21E037DD11FE25CD0043F09B /* AMSection.m */,
 				21E0397F11FE33890043F09B /* AMSectionEntry.h */,
@@ -336,7 +354,9 @@
 				2199AFDA11FF623D002E67A7 /* AMSnippet.m in Sources */,
 				2199AFDD11FF6245002E67A7 /* AMModel.m in Sources */,
 				2199AFF411FF6315002E67A7 /* AMSnippet+AMSectionEntry.m in Sources */,
-				2199B03711FF642E002E67A7 /* AMSections+AMSectionNode.m in Sources */,
+				2199B15B11FF7223002E67A7 /* AMSectionNode.m in Sources */,
+				2199B18011FF72F5002E67A7 /* AMSections+AMSectionNode.m in Sources */,
+				2199B18311FF72FB002E67A7 /* AMSection+AMSectionNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

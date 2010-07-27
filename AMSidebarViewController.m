@@ -55,7 +55,7 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
   }
   
   AMSection *section = [sections objectInSectionsAtIndex:[path indexAtPosition:0]];
-  id<AMSectionEntry> sectionEntry = [section objectInSectionEntriesAtIndex:[path indexAtPosition:1]];
+  id<AMSectionEntry> sectionEntry = [section objectInModelsAtIndex:[path indexAtPosition:1]];
   
   [delegate sidebarViewController:self 
                  didSelectSection:section 
