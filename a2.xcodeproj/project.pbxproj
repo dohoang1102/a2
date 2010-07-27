@@ -163,7 +163,7 @@
 			name = Snippet;
 			sourceTree = "<group>";
 		};
-		2199B17D11FF72E6002E67A7 /* Tree Support */ = {
+		2199B17D11FF72E6002E67A7 /* Sections Tree Support */ = {
 			isa = PBXGroup;
 			children = (
 				2199B15811FF71D7002E67A7 /* AMSectionNode.h */,
@@ -173,7 +173,45 @@
 				2199B18111FF72FB002E67A7 /* AMSection+AMSectionNode.h */,
 				2199B18211FF72FB002E67A7 /* AMSection+AMSectionNode.m */,
 			);
-			name = "Tree Support";
+			name = "Sections Tree Support";
+			sourceTree = "<group>";
+		};
+		2199B34B11FF85E6002E67A7 /* Other Sections */ = {
+			isa = PBXGroup;
+			children = (
+				21E037EC11FE266E0043F09B /* AMBlogPostsSection.h */,
+				21E037ED11FE266E0043F09B /* AMBlogPostsSection.m */,
+				21E037F111FE26AB0043F09B /* AMDailyImagesSection.h */,
+				21E037F211FE26AB0043F09B /* AMDailyImagesSection.m */,
+				21E037F611FE26BA0043F09B /* AMImagesSection.h */,
+				21E037F711FE26BA0043F09B /* AMImagesSection.m */,
+			);
+			name = "Other Sections";
+			sourceTree = "<group>";
+		};
+		2199B34C11FF860E002E67A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2199B34D11FF864B002E67A7 /* View */,
+				21E0363211FE0E0D0043F09B /* AMDocumentWindowController.h */,
+				21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */,
+				2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */,
+				2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */,
+				2199B17D11FF72E6002E67A7 /* Sections Tree Support */,
+				21E0366811FE0F970043F09B /* AMSidebarViewController.h */,
+				21E0366911FE0F970043F09B /* AMSidebarViewController.m */,
+				2199AE6D11FF51AB002E67A7 /* Content */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2199B34D11FF864B002E67A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21E036C411FE12870043F09B /* NSView+AMAdditions.h */,
+				21E036C511FE12870043F09B /* NSView+AMAdditions.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		21E035A511FE059E0043F09B /* Model */ = {
@@ -193,19 +231,13 @@
 		21E037EB11FE26620043F09B /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				2199B17D11FF72E6002E67A7 /* Tree Support */,
 				21E037CD11FE25220043F09B /* AMSections.h */,
 				21E037CE11FE25220043F09B /* AMSections.m */,
 				21E037DC11FE25CD0043F09B /* AMSection.h */,
 				21E037DD11FE25CD0043F09B /* AMSection.m */,
 				21E0397F11FE33890043F09B /* AMSectionEntry.h */,
 				21E0396E11FE32680043F09B /* AMSectionNode.h */,
-				21E037EC11FE266E0043F09B /* AMBlogPostsSection.h */,
-				21E037ED11FE266E0043F09B /* AMBlogPostsSection.m */,
-				21E037F111FE26AB0043F09B /* AMDailyImagesSection.h */,
-				21E037F211FE26AB0043F09B /* AMDailyImagesSection.m */,
-				21E037F611FE26BA0043F09B /* AMImagesSection.h */,
-				21E037F711FE26BA0043F09B /* AMImagesSection.m */,
+				2199B34B11FF85E6002E67A7 /* Other Sections */,
 				2199AFD711FF6222002E67A7 /* Snippet */,
 			);
 			name = Sections;
@@ -214,6 +246,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* a2 */ = {
 			isa = PBXGroup;
 			children = (
+				21E035A511FE059E0043F09B /* Model */,
+				2199B34C11FF860E002E67A7 /* Controllers */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -226,18 +260,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				21E035A511FE059E0043F09B /* Model */,
-				2199AE6D11FF51AB002E67A7 /* Content */,
 				2A37F4AEFDCFA73011CA2CEA /* AMDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* AMDocument.m */,
-				21E0363211FE0E0D0043F09B /* AMDocumentWindowController.h */,
-				21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */,
-				2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */,
-				2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */,
-				21E0366811FE0F970043F09B /* AMSidebarViewController.h */,
-				21E0366911FE0F970043F09B /* AMSidebarViewController.m */,
-				21E036C411FE12870043F09B /* NSView+AMAdditions.h */,
-				21E036C511FE12870043F09B /* NSView+AMAdditions.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

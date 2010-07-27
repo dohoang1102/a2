@@ -106,28 +106,22 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
 {
-  if([item isKindOfClass:[NSTreeNode class]]) {
-    id representedObject = [item representedObject];
-    if([representedObject conformsToProtocol:@protocol(AMSectionEntry)]) {
-      id<AMSectionEntry> sectionEntry = representedObject;
-      AMSection *section = [[item parentNode] representedObject];
-      BOOL shouldSelect = [delegate sidebarViewController:self willSelectSection:section sectionEntry:sectionEntry];
-      if(!shouldSelect) {
-        NSBeep();
-      }
-      return shouldSelect;
+  id representedObject = [item representedObject];
+  if([representedObject conformsToProtocol:@protocol(AMSectionEntry)]) {
+    id<AMSectionEntry> sectionEntry = representedObject;
+    AMSection *section = [[item parentNode] representedObject];
+    BOOL shouldSelect = [delegate sidebarViewController:self willSelectSection:section sectionEntry:sectionEntry];
+    if(!shouldSelect) {
+      NSBeep();
     }
+    return shouldSelect;
   }
   return NO;
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
 {
-  if([item isKindOfClass:[NSTreeNode class]]) {
-    id representedObject = [item representedObject];
-    return [representedObject isKindOfClass:[AMSection class]];
-  }
-  return NO;
+  return [[item representedObject] isKindOfClass:[AMSection class]];
 }
 
 @end
