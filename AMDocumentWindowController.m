@@ -9,17 +9,35 @@
 #import "AMDocumentWindowController.h"
 #import "AMSidebarViewController.h"
 #import "NSView+AMAdditions.h"
+#import "AMSnippetsSection.h"
+#import "AMSnippetViewController.h"
 
+
+static NSDictionary *AMSectionViewControllerClasses;
+
+
+@interface AMDocumentWindowController ()
+@property(nonatomic, readwrite, retain) NSViewController *contentViewController;
+@end
 
 @implementation AMDocumentWindowController
 @synthesize sidebar;
 @synthesize sidebarView, contentView;
+@synthesize contentViewController;
+
++ (void)initialize
+{
+  AMSectionViewControllerClasses = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [AMSnippetViewController class], [AMSnippetsSection class],
+                                    nil];
+}
 
 - (id)init
 {
   if(self = [super initWithWindowNibName:@"Document"]) {
     NSLog(@"%@ %s", [self className], _cmd);
     sidebar = [[AMSidebarViewController alloc] init];
+    sidebar.delegate = self;
   }
   return self;
 }
@@ -36,7 +54,27 @@
 {
   NSLog(@"%@ %s", [self className], _cmd);
   self.sidebar = nil;
+  self.contentViewController = nil;
   [super dealloc];
+}
+
+#pragma mark -
+
+- (Class)viewControllerClassForSection:(AMSection *)section
+{
+  return [AMSectionViewControllerClasses objectForKey:[section class]];
+}
+
+- (void)setContentViewController:(NSViewController *)controller
+{
+  if(contentViewController != controller) {
+    [[contentViewController view] removeFromSuperview];
+    [contentViewController release];
+    
+    contentViewController = [controller retain];
+    [contentViewController loadView];
+    [contentView addSubview:[contentViewController view] resizeToFit:YES];
+  }
 }
 
 #pragma mark -
@@ -46,6 +84,29 @@
 {
   // when resizing window, only content view should change it's size
   return view == contentView;
+}
+
+#pragma mark -
+#pragma mark Sidebar view controller delegate
+
+- (BOOL)sidebarViewController:(AMSidebarViewController *)controller 
+            willSelectSection:(AMSection *)section 
+                 sectionEntry:(id<AMSectionEntry>)entry
+{
+  return YES;
+}
+
+- (void)sidebarViewController:(AMSidebarViewController *)sender
+             didSelectSection:(AMSection *)section 
+                 sectionEntry:(id<AMSectionEntry>)entry
+{
+  Class controllerClass = [self viewControllerClassForSection:section];
+  NSViewController *controller = [[controllerClass alloc] init];
+  if(controller) {
+    [controller setRepresentedObject:entry];
+    [self setContentViewController:controller];
+    [controller release];
+  }
 }
 
 @end

@@ -18,7 +18,7 @@
 @end
 
 @implementation AMSections
-@synthesize sections, activeSection, activeSectionEntry;
+@synthesize sections;
 
 - (id)init
 {
@@ -29,29 +29,14 @@
                      [[[AMImagesSection alloc] init] autorelease],
                      [[[AMSnippetsSection alloc] init] autorelease],
                      nil];
-    [self addObserver:self forKeyPath:@"activeSection" options:NSKeyValueObservingOptionNew context:self];
-    [self addObserver:self forKeyPath:@"activeSectionEntry" options:NSKeyValueObservingOptionNew context:self];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [self removeObserver:self forKeyPath:@"activeSection"];
-  [self removeObserver:self forKeyPath:@"activeSectionEntry"];
   self.sections = nil;
-  self.activeSection = nil;
-  self.activeSectionEntry = nil;
   [super dealloc];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-  if(context == self) {
-    NSLog(@"AMSections • %@ – %@", keyPath, [change objectForKey:NSKeyValueChangeNewKey]);
-  } else {
-    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-  }
 }
 
 #pragma mark -

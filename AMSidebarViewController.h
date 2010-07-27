@@ -10,14 +10,16 @@
 
 
 @class AMSections, AMSection;
-@protocol AMSectionEntry;
+@protocol AMSectionEntry, AMSidebarViewControllerDelegate;
 
 @interface AMSidebarViewController : NSViewController <NSOutlineViewDelegate> {
+  id<AMSidebarViewControllerDelegate> delegate;
   AMSections *sections;
   NSOutlineView *outlineView;
   NSArray *selectionIndexPaths;
 }
 
+@property(nonatomic, readwrite, assign) id<AMSidebarViewControllerDelegate> delegate;
 @property(nonatomic, readwrite, assign) NSOutlineView *outlineView;
 @property(nonatomic, readwrite, retain) AMSections *sections;
 @property(nonatomic, readwrite, retain) NSArray *selectionIndexPaths;
@@ -26,4 +28,13 @@
 
 
 @protocol AMSidebarViewControllerDelegate
+
+- (BOOL)sidebarViewController:(AMSidebarViewController *)controller 
+            willSelectSection:(AMSection *)section 
+                 sectionEntry:(id<AMSectionEntry>)entry;
+
+- (void)sidebarViewController:(AMSidebarViewController *)controller 
+             didSelectSection:(AMSection *)section 
+                 sectionEntry:(id<AMSectionEntry>)entry;
+
 @end

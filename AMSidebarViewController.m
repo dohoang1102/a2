@@ -15,7 +15,7 @@
 static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControllerContext";
 
 @implementation AMSidebarViewController
-@synthesize outlineView, sections, selectionIndexPaths;
+@synthesize delegate, outlineView, sections, selectionIndexPaths;
 
 - (id)init
 {
@@ -35,6 +35,7 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 {
   NSLog(@"%@ %s", [self className], _cmd);
   [self removeObserver:self forKeyPath:@"selectionIndexPaths"];
+  delegate = nil;
   self.sections = nil;
   self.selectionIndexPaths = nil;
   [super dealloc];
@@ -53,21 +54,21 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
     return;
   }
   
-  NSUInteger sectionIndex = [path indexAtPosition:0];
-  AMSection *section = [sections objectInSectionsAtIndex:sectionIndex];
+  AMSection *section = [sections objectInSectionsAtIndex:[path indexAtPosition:0]];
+  id<AMSectionEntry> sectionEntry = [section objectInSectionEntriesAtIndex:[path indexAtPosition:1]];
   
-  NSUInteger entryIndex = [path indexAtPosition:1];
-  id<AMSectionEntry> sectionEntry = [section objectInSectionEntriesAtIndex:entryIndex];
-  
-  [sections setActiveSection:section];
-  [sections setActiveSectionEntry:sectionEntry];
+  [delegate sidebarViewController:self 
+                 didSelectSection:section 
+                     sectionEntry:sectionEntry];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
   if(context == &AMSidebarViewControllerContext) {
     if(object == self) {
-      [self selectionIndexPathsDidChange];      
+      if([keyPath isEqualToString:@"selectionIndexPaths"]) {
+        [self selectionIndexPathsDidChange];        
+      }
     }
   } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -80,7 +81,11 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 {
   if([item isKindOfClass:[NSTreeNode class]]) {
     id representedObject = [item representedObject];
-    return ![representedObject isKindOfClass:[AMSection class]];
+    if([representedObject conformsToProtocol:@protocol(AMSectionEntry)]) {
+      id<AMSectionEntry> sectionEntry = representedObject;
+      AMSection *section = [[item parentNode] representedObject];
+      return [delegate sidebarViewController:self willSelectSection:section sectionEntry:sectionEntry];
+    }
   }
   return NO;
 }

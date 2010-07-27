@@ -7,12 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AMSidebarViewController.h"
 
 
-@class AMSidebarViewController;
-
-@interface AMDocumentWindowController : NSWindowController <NSSplitViewDelegate> {
+@interface AMDocumentWindowController : NSWindowController <NSSplitViewDelegate, AMSidebarViewControllerDelegate> {
   AMSidebarViewController *sidebar;
+  NSViewController *contentViewController;
   
   NSView *sidebarView;
   NSView *contentContent;
