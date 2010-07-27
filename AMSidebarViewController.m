@@ -15,7 +15,7 @@
 static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControllerContext";
 
 @implementation AMSidebarViewController
-@synthesize delegate, outlineView, sections, selectionIndexPaths;
+@synthesize delegate, sections, selectionIndexPaths, treeController;
 
 - (id)init
 {
@@ -73,6 +73,33 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
   } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
   }
+}
+
+#pragma mark -
+
+- (id)outlineView:(NSOutlineView *)outlineView persistentObjectForItem:(id)item
+{
+  AMSection *section = [item representedObject];
+  return [section persistentName];
+}
+
+- (id)treeNodeForRepresentedObject:(id)object
+{
+  for(id node in [[treeController arrangedObjects] childNodes]) {
+    if([node representedObject] == object) {
+      return node;
+    }
+  }
+  return nil;
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView itemForPersistentObject:(id)object
+{
+  AMSection *section = [sections sectionWithPersistentName:object];
+  if(section) {
+    return [self treeNodeForRepresentedObject:section];
+  }
+  return nil;
 }
 
 #pragma mark -

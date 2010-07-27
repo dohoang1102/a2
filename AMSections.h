@@ -20,4 +20,6 @@
 
 - (NSUInteger)indexOfSection:(AMSection *)section;
 
+- (AMSection *)sectionWithPersistentName:(NSString *)persistentName;
+
 @end

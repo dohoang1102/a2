@@ -56,4 +56,16 @@
   return [sections indexOfObject:section];
 }
 
+#pragma mark -
+
+- (AMSection *)sectionWithPersistentName:(NSString *)persistentName
+{
+  for(AMSection *section in sections) {
+    if([[section persistentName] isEqualToString:persistentName]) {
+      return section;
+    }
+  }
+  return nil;
+}
+
 @end

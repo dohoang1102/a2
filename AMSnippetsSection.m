@@ -38,4 +38,9 @@
   return @"Code Snippets";
 }
 
+- (NSString *)persistentName
+{
+  return @"snippets";
+}
+
 @end

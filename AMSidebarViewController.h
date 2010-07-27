@@ -12,15 +12,15 @@
 @class AMSections, AMSection;
 @protocol AMSectionEntry, AMSidebarViewControllerDelegate;
 
-@interface AMSidebarViewController : NSViewController <NSOutlineViewDelegate> {
+@interface AMSidebarViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate> {
   id<AMSidebarViewControllerDelegate> delegate;
   AMSections *sections;
-  NSOutlineView *outlineView;
+  NSTreeController *treeController;
   NSArray *selectionIndexPaths;
 }
 
 @property(nonatomic, readwrite, assign) id<AMSidebarViewControllerDelegate> delegate;
-@property(nonatomic, readwrite, assign) NSOutlineView *outlineView;
+@property(nonatomic, readwrite, assign) IBOutlet NSTreeController *treeController;
 @property(nonatomic, readwrite, retain) AMSections *sections;
 @property(nonatomic, readwrite, retain) NSArray *selectionIndexPaths;
 

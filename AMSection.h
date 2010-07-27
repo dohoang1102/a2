@@ -26,4 +26,5 @@
 
 @interface AMSection (AMSectionAbstract)
 - (NSString *)localizedName;
+- (NSString *)persistentName;
 @end
