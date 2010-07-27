@@ -46,6 +46,7 @@
 				<string key="NSWindowTitle">Login</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="479662907">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -130,7 +131,7 @@
 							<bool key="NSTransparent">NO</bool>
 							<object class="NSColor" key="NSFillColor2">
 								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MC4xAA</bytes>
+								<bytes key="NSWhite">MC4xNQA</bytes>
 							</object>
 						</object>
 						<object class="NSTextField" id="409656872">
