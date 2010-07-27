@@ -1,5 +1,5 @@
 //
-//  AMSectionEntry.h
+//  AMSnippet+AMSectionEntry.h
 //  a2
 //
 //  Created by ampatspell on 7/27/10.
@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AMSectionNode.h"
+#import "AMSnippet.h"
+#import "AMSectionEntry.h"
 
-@protocol AMSectionEntry <AMSectionNode>
-- (NSString *)sectionEntryName;
+
+@interface AMSnippet (AMSectionEntry) <AMSectionEntry>
 @end

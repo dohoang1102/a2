@@ -1,5 +1,5 @@
 //
-//  AMSectionEntry.h
+//  AMModel.h
 //  a2
 //
 //  Created by ampatspell on 7/27/10.
@@ -7,8 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AMSectionNode.h"
 
-@protocol AMSectionEntry <AMSectionNode>
-- (NSString *)sectionEntryName;
+
+@interface AMModel : NSObject {
+  NSString *key;
+}
+
+@property(nonatomic, readwrite, copy) NSString *key;
+
 @end

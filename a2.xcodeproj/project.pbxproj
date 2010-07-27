@@ -14,6 +14,10 @@
 		2199AF0311FF57A1002E67A7 /* Blank.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199AF0211FF57A1002E67A7 /* Blank.xib */; };
 		2199AF0611FF57B3002E67A7 /* AMBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AF0511FF57B3002E67A7 /* AMBlankViewController.m */; };
 		2199AF4B11FF5D69002E67A7 /* AMViewControllerSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */; };
+		2199AFDA11FF623D002E67A7 /* AMSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFD911FF623D002E67A7 /* AMSnippet.m */; };
+		2199AFDD11FF6245002E67A7 /* AMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFDC11FF6245002E67A7 /* AMModel.m */; };
+		2199AFF411FF6315002E67A7 /* AMSnippet+AMSectionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AFF311FF6315002E67A7 /* AMSnippet+AMSectionEntry.m */; };
+		2199B03711FF642E002E67A7 /* AMSections+AMSectionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */; };
 		21E035A911FE05C30043F09B /* AMSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035A811FE05C30043F09B /* AMSite.m */; };
 		21E035B211FE074F0043F09B /* AMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035B111FE074F0043F09B /* AMServer.m */; };
 		21E0363411FE0E0D0043F09B /* AMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */; };
@@ -26,7 +30,6 @@
 		21E037F311FE26AB0043F09B /* AMDailyImagesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037F211FE26AB0043F09B /* AMDailyImagesSection.m */; };
 		21E037F811FE26BA0043F09B /* AMImagesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037F711FE26BA0043F09B /* AMImagesSection.m */; };
 		21E037FD11FE26C70043F09B /* AMSnippetsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037FC11FE26C70043F09B /* AMSnippetsSection.m */; };
-		21E0398111FE33890043F09B /* AMSectionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0398011FE33890043F09B /* AMSectionEntry.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* AMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* AMDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -48,6 +51,14 @@
 		2199AF0511FF57B3002E67A7 /* AMBlankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlankViewController.m; sourceTree = "<group>"; };
 		2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewControllerSwitch.h; sourceTree = "<group>"; };
 		2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewControllerSwitch.m; sourceTree = "<group>"; };
+		2199AFD811FF623D002E67A7 /* AMSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSnippet.h; sourceTree = "<group>"; };
+		2199AFD911FF623D002E67A7 /* AMSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSnippet.m; sourceTree = "<group>"; };
+		2199AFDB11FF6245002E67A7 /* AMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMModel.h; sourceTree = "<group>"; };
+		2199AFDC11FF6245002E67A7 /* AMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMModel.m; sourceTree = "<group>"; };
+		2199AFF211FF6315002E67A7 /* AMSnippet+AMSectionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSnippet+AMSectionEntry.h"; sourceTree = "<group>"; };
+		2199AFF311FF6315002E67A7 /* AMSnippet+AMSectionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSnippet+AMSectionEntry.m"; sourceTree = "<group>"; };
+		2199B03511FF642E002E67A7 /* AMSections+AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSections+AMSectionNode.h"; sourceTree = "<group>"; };
+		2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSections+AMSectionNode.m"; sourceTree = "<group>"; };
 		21E035A711FE05C30043F09B /* AMSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSite.h; sourceTree = "<group>"; };
 		21E035A811FE05C30043F09B /* AMSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSite.m; sourceTree = "<group>"; };
 		21E035B011FE074F0043F09B /* AMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMServer.h; sourceTree = "<group>"; };
@@ -73,7 +84,6 @@
 		21E037FC11FE26C70043F09B /* AMSnippetsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSnippetsSection.m; sourceTree = "<group>"; };
 		21E0396E11FE32680043F09B /* AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSectionNode.h; sourceTree = "<group>"; };
 		21E0397F11FE33890043F09B /* AMSectionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSectionEntry.h; sourceTree = "<group>"; };
-		21E0398011FE33890043F09B /* AMSectionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSectionEntry.m; sourceTree = "<group>"; };
 		2564AD2C0F5327BB00F57823 /* a2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a2_Prefix.pch; sourceTree = "<group>"; };
 		2A37F4ACFDCFA73011CA2CEA /* AMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* AMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDocument.h; sourceTree = "<group>"; };
@@ -134,6 +144,19 @@
 			name = Content;
 			sourceTree = "<group>";
 		};
+		2199AFD711FF6222002E67A7 /* Snippet */ = {
+			isa = PBXGroup;
+			children = (
+				21E037FB11FE26C70043F09B /* AMSnippetsSection.h */,
+				21E037FC11FE26C70043F09B /* AMSnippetsSection.m */,
+				2199AFD811FF623D002E67A7 /* AMSnippet.h */,
+				2199AFD911FF623D002E67A7 /* AMSnippet.m */,
+				2199AFF211FF6315002E67A7 /* AMSnippet+AMSectionEntry.h */,
+				2199AFF311FF6315002E67A7 /* AMSnippet+AMSectionEntry.m */,
+			);
+			name = Snippet;
+			sourceTree = "<group>";
+		};
 		21E035A511FE059E0043F09B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,13 +164,8 @@
 				21E035A811FE05C30043F09B /* AMSite.m */,
 				21E035B011FE074F0043F09B /* AMServer.h */,
 				21E035B111FE074F0043F09B /* AMServer.m */,
-				21E037CD11FE25220043F09B /* AMSections.h */,
-				21E037CE11FE25220043F09B /* AMSections.m */,
-				21E037DC11FE25CD0043F09B /* AMSection.h */,
-				21E037DD11FE25CD0043F09B /* AMSection.m */,
-				21E0397F11FE33890043F09B /* AMSectionEntry.h */,
-				21E0398011FE33890043F09B /* AMSectionEntry.m */,
-				21E0396E11FE32680043F09B /* AMSectionNode.h */,
+				2199AFDB11FF6245002E67A7 /* AMModel.h */,
+				2199AFDC11FF6245002E67A7 /* AMModel.m */,
 				21E037EB11FE26620043F09B /* Sections */,
 			);
 			name = Model;
@@ -156,14 +174,21 @@
 		21E037EB11FE26620043F09B /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				21E037CD11FE25220043F09B /* AMSections.h */,
+				21E037CE11FE25220043F09B /* AMSections.m */,
+				2199B03511FF642E002E67A7 /* AMSections+AMSectionNode.h */,
+				2199B03611FF642E002E67A7 /* AMSections+AMSectionNode.m */,
+				21E037DC11FE25CD0043F09B /* AMSection.h */,
+				21E037DD11FE25CD0043F09B /* AMSection.m */,
+				21E0397F11FE33890043F09B /* AMSectionEntry.h */,
+				21E0396E11FE32680043F09B /* AMSectionNode.h */,
 				21E037EC11FE266E0043F09B /* AMBlogPostsSection.h */,
 				21E037ED11FE266E0043F09B /* AMBlogPostsSection.m */,
 				21E037F111FE26AB0043F09B /* AMDailyImagesSection.h */,
 				21E037F211FE26AB0043F09B /* AMDailyImagesSection.m */,
 				21E037F611FE26BA0043F09B /* AMImagesSection.h */,
 				21E037F711FE26BA0043F09B /* AMImagesSection.m */,
-				21E037FB11FE26C70043F09B /* AMSnippetsSection.h */,
-				21E037FC11FE26C70043F09B /* AMSnippetsSection.m */,
+				2199AFD711FF6222002E67A7 /* Snippet */,
 			);
 			name = Sections;
 			sourceTree = "<group>";
@@ -305,10 +330,13 @@
 				21E037F311FE26AB0043F09B /* AMDailyImagesSection.m in Sources */,
 				21E037F811FE26BA0043F09B /* AMImagesSection.m in Sources */,
 				21E037FD11FE26C70043F09B /* AMSnippetsSection.m in Sources */,
-				21E0398111FE33890043F09B /* AMSectionEntry.m in Sources */,
 				2199AE6911FF50F6002E67A7 /* AMSnippetViewController.m in Sources */,
 				2199AF0611FF57B3002E67A7 /* AMBlankViewController.m in Sources */,
 				2199AF4B11FF5D69002E67A7 /* AMViewControllerSwitch.m in Sources */,
+				2199AFDA11FF623D002E67A7 /* AMSnippet.m in Sources */,
+				2199AFDD11FF6245002E67A7 /* AMModel.m in Sources */,
+				2199AFF411FF6315002E67A7 /* AMSnippet+AMSectionEntry.m in Sources */,
+				2199B03711FF642E002E67A7 /* AMSections+AMSectionNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

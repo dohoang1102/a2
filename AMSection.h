@@ -7,16 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AMSectionNode.h"
 
 
 @protocol AMSectionEntry;
 
-@interface AMSection : NSWindowController {
-  NSMutableArray *entries;
-  id<AMSectionEntry> active;
+@interface AMSection : NSWindowController <AMSectionNode> {
 }
-
-@property(nonatomic, readwrite, retain) id<AMSectionEntry> active;
 
 @end
 
@@ -26,4 +23,5 @@
 - (NSUInteger)countOfSectionEntries;
 - (id<AMSectionEntry>)objectInSectionEntriesAtIndex:(NSUInteger)index;
 - (NSUInteger)indexOfSectionEntry:(id<AMSectionEntry>)entry;
+
 @end

@@ -24,9 +24,9 @@
 {
   if(self = [super init]) {
     self.sections = [NSArray arrayWithObjects:
-                     [[[AMBlogPostsSection alloc] init] autorelease],
-                     [[[AMDailyImagesSection alloc] init] autorelease],
-                     [[[AMImagesSection alloc] init] autorelease],
+//                     [[[AMBlogPostsSection alloc] init] autorelease],
+//                     [[[AMDailyImagesSection alloc] init] autorelease],
+//                     [[[AMImagesSection alloc] init] autorelease],
                      [[[AMSnippetsSection alloc] init] autorelease],
                      nil];
   }
