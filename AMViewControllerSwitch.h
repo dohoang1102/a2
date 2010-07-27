@@ -14,10 +14,7 @@
   NSViewController *controller;
 }
 
-- (id)initWithParentView:(NSView *)view;
-
-@property(nonatomic, readonly, retain) NSViewController *controller;
-
-- (void)switchTo:(NSViewController *)controller;
+@property(nonatomic, readwrite, assign) IBOutlet NSView *view;
+@property(nonatomic, readwrite, retain) NSViewController *controller;
 
 @end

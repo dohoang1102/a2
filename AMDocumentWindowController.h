@@ -14,16 +14,15 @@
 
 @interface AMDocumentWindowController : NSWindowController <NSSplitViewDelegate, AMSidebarViewControllerDelegate> {
   AMSidebarViewController *sidebar;
-  AMViewControllerSwitch *content;
-  NSView *sidebarView;
-  NSView *contentView;
+  AMViewControllerSwitch *contentView;
+  AMViewControllerSwitch *sidebarView;
 }
 
 - (id)init;
 
 @property(nonatomic, readwrite, retain) AMSidebarViewController *sidebar;
 
-@property(nonatomic, readwrite, assign) IBOutlet NSView *sidebarView;
-@property(nonatomic, readwrite, assign) IBOutlet NSView *contentView;
+@property(nonatomic, readwrite, assign) IBOutlet AMViewControllerSwitch *sidebarView;
+@property(nonatomic, readwrite, assign) IBOutlet AMViewControllerSwitch *contentView;
 
 @end

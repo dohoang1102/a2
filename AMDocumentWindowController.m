@@ -49,10 +49,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 {
   NSLog(@"%@ %s %@", [self className], _cmd, self.document);
 
-  [sidebar loadView];
-  [sidebarView addSubview:[sidebar view] resizeToFit:YES];
-  
-  content = [[AMViewControllerSwitch alloc] initWithParentView:contentView];
+  [sidebarView setController:sidebar];
   [self setContentViewControllerForSection:nil sectionEntry:nil];
 }
 
@@ -73,7 +70,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 
 - (void)setContentViewController:(NSViewController *)controller
 {
-  [content switchTo:controller];
+  [contentView setController:controller];
 }
 
 - (void)setContentViewControllerForSection:(AMSection *)section sectionEntry:(id<AMSectionEntry>)entry
@@ -97,7 +94,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 - (BOOL)splitView:(NSSplitView *)splitView shouldAdjustSizeOfSubview:(NSView *)view
 {
   // when resizing window, only content view should change it's size
-  return view == contentView;
+  return view == contentView.view;
 }
 
 #pragma mark -

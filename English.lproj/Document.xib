@@ -88,6 +88,12 @@
 			<object class="NSCustomObject" id="796877042">
 				<string key="NSClassName">NSApplication</string>
 			</object>
+			<object class="NSCustomObject" id="973159690">
+				<string key="NSClassName">AMViewControllerSwitch</string>
+			</object>
+			<object class="NSCustomObject" id="421895007">
+				<string key="NSClassName">AMViewControllerSwitch</string>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -110,14 +116,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">sidebarView</string>
-						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="623675465"/>
-					</object>
-					<int key="connectionID">100025</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="937673877"/>
 						<reference key="destination" ref="512844837"/>
@@ -126,11 +124,35 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">contentView</string>
-						<reference key="source" ref="512844837"/>
+						<string key="label">view</string>
+						<reference key="source" ref="973159690"/>
 						<reference key="destination" ref="880432134"/>
 					</object>
-					<int key="connectionID">100027</int>
+					<int key="connectionID">100030</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">view</string>
+						<reference key="source" ref="421895007"/>
+						<reference key="destination" ref="623675465"/>
+					</object>
+					<int key="connectionID">100031</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">contentView</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="973159690"/>
+					</object>
+					<int key="connectionID">100032</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">sidebarView</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="421895007"/>
+					</object>
+					<int key="connectionID">100033</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -199,6 +221,18 @@
 						<reference key="object" ref="880432134"/>
 						<reference key="parent" ref="937673877"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100028</int>
+						<reference key="object" ref="973159690"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Content</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100029</int>
+						<reference key="object" ref="421895007"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Sidebar</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -209,6 +243,8 @@
 					<string>100021.IBPluginDependency</string>
 					<string>100022.IBPluginDependency</string>
 					<string>100023.IBPluginDependency</string>
+					<string>100028.IBPluginDependency</string>
+					<string>100029.IBPluginDependency</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.IBWindowTemplateEditedContentRect</string>
@@ -221,6 +257,8 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -252,7 +290,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100027</int>
+			<int key="maxID">100033</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -269,8 +307,8 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSView</string>
-							<string>NSView</string>
+							<string>AMViewControllerSwitch</string>
+							<string>AMViewControllerSwitch</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -284,17 +322,36 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">contentView</string>
-								<string key="candidateClassName">NSView</string>
+								<string key="candidateClassName">AMViewControllerSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">sidebarView</string>
-								<string key="candidateClassName">NSView</string>
+								<string key="candidateClassName">AMViewControllerSwitch</string>
 							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">AMDocumentWindowController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AMViewControllerSwitch</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">view</string>
+						<string key="NS.object.0">NSView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">view</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">view</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">AMViewControllerSwitch.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

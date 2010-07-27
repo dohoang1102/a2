@@ -10,34 +10,22 @@
 #import "NSView+AMAdditions.h"
 
 
-@interface AMViewControllerSwitch ()
-@property(nonatomic, readwrite, retain) NSView *view;
-@property(nonatomic, readwrite, retain) NSViewController *controller;
-@end
-
 @implementation AMViewControllerSwitch
 @synthesize view, controller;
 
-- (id)initWithParentView:(NSView *)aView
-{
-  if(self = [super init]) {
-    self.view = aView;
-  }
-  return self;
-}
-
 - (void)dealloc
 {
-  [self switchTo:nil];
+  self.controller = nil;
   self.view = nil;
   [super dealloc];
 }
 
-- (void)switchTo:(NSViewController *)next
+- (void)setController:(NSViewController *)next
 {
   if(controller != next) {
     [[controller view] removeFromSuperview];
-    self.controller = next;
+    [controller release];
+    controller = [next retain];
     if(controller) {
       [next loadView];
       [view addSubview:[controller view] resizeToFit:YES];      
