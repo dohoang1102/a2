@@ -13,6 +13,7 @@
 		2199AE6B11FF510A002E67A7 /* Snippet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199AE6A11FF510A002E67A7 /* Snippet.xib */; };
 		2199AF0311FF57A1002E67A7 /* Blank.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199AF0211FF57A1002E67A7 /* Blank.xib */; };
 		2199AF0611FF57B3002E67A7 /* AMBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AF0511FF57B3002E67A7 /* AMBlankViewController.m */; };
+		2199AF4B11FF5D69002E67A7 /* AMViewControllerSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */; };
 		21E035A911FE05C30043F09B /* AMSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035A811FE05C30043F09B /* AMSite.m */; };
 		21E035B211FE074F0043F09B /* AMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035B111FE074F0043F09B /* AMServer.m */; };
 		21E0363411FE0E0D0043F09B /* AMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */; };
@@ -45,6 +46,8 @@
 		2199AF0211FF57A1002E67A7 /* Blank.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Blank.xib; sourceTree = "<group>"; };
 		2199AF0411FF57B3002E67A7 /* AMBlankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlankViewController.h; sourceTree = "<group>"; };
 		2199AF0511FF57B3002E67A7 /* AMBlankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlankViewController.m; sourceTree = "<group>"; };
+		2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewControllerSwitch.h; sourceTree = "<group>"; };
+		2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewControllerSwitch.m; sourceTree = "<group>"; };
 		21E035A711FE05C30043F09B /* AMSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSite.h; sourceTree = "<group>"; };
 		21E035A811FE05C30043F09B /* AMSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSite.m; sourceTree = "<group>"; };
 		21E035B011FE074F0043F09B /* AMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMServer.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				2A37F4ACFDCFA73011CA2CEA /* AMDocument.m */,
 				21E0363211FE0E0D0043F09B /* AMDocumentWindowController.h */,
 				21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */,
+				2199AF4911FF5D69002E67A7 /* AMViewControllerSwitch.h */,
+				2199AF4A11FF5D69002E67A7 /* AMViewControllerSwitch.m */,
 				21E0366811FE0F970043F09B /* AMSidebarViewController.h */,
 				21E0366911FE0F970043F09B /* AMSidebarViewController.m */,
 				21E036C411FE12870043F09B /* NSView+AMAdditions.h */,
@@ -303,6 +308,7 @@
 				21E0398111FE33890043F09B /* AMSectionEntry.m in Sources */,
 				2199AE6911FF50F6002E67A7 /* AMSnippetViewController.m in Sources */,
 				2199AF0611FF57B3002E67A7 /* AMBlankViewController.m in Sources */,
+				2199AF4B11FF5D69002E67A7 /* AMViewControllerSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

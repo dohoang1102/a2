@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100022"/>
+			<integer value="100021"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -110,14 +110,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">contentView</string>
-						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="880432134"/>
-					</object>
-					<int key="connectionID">100024</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">sidebarView</string>
 						<reference key="source" ref="512844837"/>
 						<reference key="destination" ref="623675465"/>
@@ -131,6 +123,14 @@
 						<reference key="destination" ref="512844837"/>
 					</object>
 					<int key="connectionID">100026</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">contentView</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="880432134"/>
+					</object>
+					<int key="connectionID">100027</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -252,7 +252,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100026</int>
+			<int key="maxID">100027</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

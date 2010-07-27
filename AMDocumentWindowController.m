@@ -12,20 +12,21 @@
 #import "AMSnippetsSection.h"
 #import "AMSnippetViewController.h"
 #import "AMBlankViewController.h"
+#import "AMViewControllerSwitch.h"
 
 
 static NSDictionary *AMSectionViewControllerClasses;
 
 
 @interface AMDocumentWindowController ()
-@property(nonatomic, readwrite, retain) NSViewController *contentViewController;
+@property(nonatomic, readwrite, retain) AMViewControllerSwitch *content;
 - (void)setContentViewControllerForSection:(AMSection *)section sectionEntry:(id<AMSectionEntry>)entry;
 @end
 
 @implementation AMDocumentWindowController
 @synthesize sidebar;
 @synthesize sidebarView, contentView;
-@synthesize contentViewController;
+@synthesize content;
 
 + (void)initialize
 {
@@ -50,6 +51,8 @@ static NSDictionary *AMSectionViewControllerClasses;
 
   [sidebar loadView];
   [sidebarView addSubview:[sidebar view] resizeToFit:YES];
+  
+  content = [[AMViewControllerSwitch alloc] initWithParentView:contentView];
   [self setContentViewControllerForSection:nil sectionEntry:nil];
 }
 
@@ -57,7 +60,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 {
   NSLog(@"%@ %s", [self className], _cmd);
   self.sidebar = nil;
-  self.contentViewController = nil;
+  self.content = nil;
   [super dealloc];
 }
 
@@ -70,14 +73,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 
 - (void)setContentViewController:(NSViewController *)controller
 {
-  if(contentViewController != controller) {
-    [[contentViewController view] removeFromSuperview];
-    [contentViewController release];
-    
-    contentViewController = [controller retain];
-    [contentViewController loadView];
-    [contentView addSubview:[contentViewController view] resizeToFit:YES];
-  }
+  [content switchTo:controller];
 }
 
 - (void)setContentViewControllerForSection:(AMSection *)section sectionEntry:(id<AMSectionEntry>)entry

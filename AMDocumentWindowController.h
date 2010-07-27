@@ -10,12 +10,13 @@
 #import "AMSidebarViewController.h"
 
 
+@class AMViewControllerSwitch;
+
 @interface AMDocumentWindowController : NSWindowController <NSSplitViewDelegate, AMSidebarViewControllerDelegate> {
   AMSidebarViewController *sidebar;
-  NSViewController *contentViewController;
-  
+  AMViewControllerSwitch *content;
   NSView *sidebarView;
-  NSView *contentContent;
+  NSView *contentView;
 }
 
 - (id)init;
