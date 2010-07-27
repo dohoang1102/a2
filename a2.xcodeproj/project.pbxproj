@@ -21,7 +21,6 @@
 		21E037F311FE26AB0043F09B /* AMDailyImagesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037F211FE26AB0043F09B /* AMDailyImagesSection.m */; };
 		21E037F811FE26BA0043F09B /* AMImagesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037F711FE26BA0043F09B /* AMImagesSection.m */; };
 		21E037FD11FE26C70043F09B /* AMSnippetsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E037FC11FE26C70043F09B /* AMSnippetsSection.m */; };
-		21E0397011FE32680043F09B /* AMSection+NSTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0396F11FE32680043F09B /* AMSection+NSTreeController.m */; };
 		21E0398111FE33890043F09B /* AMSectionEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0398011FE33890043F09B /* AMSectionEntry.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -59,8 +58,7 @@
 		21E037F711FE26BA0043F09B /* AMImagesSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMImagesSection.m; sourceTree = "<group>"; };
 		21E037FB11FE26C70043F09B /* AMSnippetsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSnippetsSection.h; sourceTree = "<group>"; };
 		21E037FC11FE26C70043F09B /* AMSnippetsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSnippetsSection.m; sourceTree = "<group>"; };
-		21E0396E11FE32680043F09B /* AMSection+NSTreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMSection+NSTreeController.h"; sourceTree = "<group>"; };
-		21E0396F11FE32680043F09B /* AMSection+NSTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMSection+NSTreeController.m"; sourceTree = "<group>"; };
+		21E0396E11FE32680043F09B /* AMSectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSectionNode.h; sourceTree = "<group>"; };
 		21E0397F11FE33890043F09B /* AMSectionEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSectionEntry.h; sourceTree = "<group>"; };
 		21E0398011FE33890043F09B /* AMSectionEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSectionEntry.m; sourceTree = "<group>"; };
 		2564AD2C0F5327BB00F57823 /* a2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a2_Prefix.pch; sourceTree = "<group>"; };
@@ -125,8 +123,7 @@
 				21E037DD11FE25CD0043F09B /* AMSection.m */,
 				21E0397F11FE33890043F09B /* AMSectionEntry.h */,
 				21E0398011FE33890043F09B /* AMSectionEntry.m */,
-				21E0396E11FE32680043F09B /* AMSection+NSTreeController.h */,
-				21E0396F11FE32680043F09B /* AMSection+NSTreeController.m */,
+				21E0396E11FE32680043F09B /* AMSectionNode.h */,
 				21E037EB11FE26620043F09B /* Sections */,
 			);
 			name = Model;
@@ -277,7 +274,6 @@
 				21E037F311FE26AB0043F09B /* AMDailyImagesSection.m in Sources */,
 				21E037F811FE26BA0043F09B /* AMImagesSection.m in Sources */,
 				21E037FD11FE26C70043F09B /* AMSnippetsSection.m in Sources */,
-				21E0397011FE32680043F09B /* AMSection+NSTreeController.m in Sources */,
 				21E0398111FE33890043F09B /* AMSectionEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,14 +14,14 @@
 
 @interface AMSections : NSObject {
   NSArray *sections;
-  AMSection *active;
+  AMSection *activeSection;
+  id<AMSectionEntry> activeSectionEntry;
 }
 
 - (NSUInteger)countOfSections;
 - (AMSection *)objectInSectionsAtIndex:(NSUInteger)index;
 
-@property(nonatomic, readwrite, retain) AMSection *active;
-
-- (void)setActive:(AMSection *)section entry:(id<AMSectionEntry>)item;
+@property(nonatomic, readwrite, retain) AMSection *activeSection;
+@property(nonatomic, readwrite, retain) id<AMSectionEntry> activeSectionEntry;
 
 @end

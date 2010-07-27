@@ -7,16 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AMSection+NSTreeController.h"
+#import "AMSectionNode.h"
 
-
-@protocol AMSectionEntry <AMSectionTreeSupport>
+@protocol AMSectionEntry <AMSectionNode>
 - (NSString *)sectionEntryName;
 @end
 
 
 // Temporary
-@interface AMSectionEntryImpl :NSObject <AMSectionEntry> {
+@interface AMSectionEntryImpl : NSObject <AMSectionEntry> {
   NSString *name;
 }
 

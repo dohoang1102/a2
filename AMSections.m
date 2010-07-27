@@ -18,7 +18,7 @@
 @end
 
 @implementation AMSections
-@synthesize sections, active;
+@synthesize sections, activeSection, activeSectionEntry;
 
 - (id)init
 {
@@ -29,15 +29,29 @@
                      [[[AMImagesSection alloc] init] autorelease],
                      [[[AMSnippetsSection alloc] init] autorelease],
                      nil];
+    [self addObserver:self forKeyPath:@"activeSection" options:NSKeyValueObservingOptionNew context:self];
+    [self addObserver:self forKeyPath:@"activeSectionEntry" options:NSKeyValueObservingOptionNew context:self];
   }
   return self;
 }
 
 - (void)dealloc
 {
+  [self removeObserver:self forKeyPath:@"activeSection"];
+  [self removeObserver:self forKeyPath:@"activeSectionEntry"];
   self.sections = nil;
-  self.active   = nil;
+  self.activeSection = nil;
+  self.activeSectionEntry = nil;
   [super dealloc];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+  if(context == self) {
+    NSLog(@"AMSections • %@ – %@", keyPath, [change objectForKey:NSKeyValueChangeNewKey]);
+  } else {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+  }
 }
 
 #pragma mark -
@@ -50,19 +64,6 @@
 - (AMSection *)objectInSectionsAtIndex:(NSUInteger)index
 {
   return [sections objectAtIndex:index];
-}
-
-#pragma mark -
-
-- (void)setActive:(AMSection *)section entry:(id<AMSectionEntry>)item
-{
-  if(active != section) {
-    [active setActive:nil];
-    self.active = section;
-  }
-  if(active.active != item) {
-    active.active = item;
-  }
 }
 
 @end

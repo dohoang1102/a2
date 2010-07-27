@@ -42,4 +42,26 @@
   return [entries objectAtIndex:index];
 }
 
+#pragma mark -
+
+- (NSUInteger)countOfNodes
+{
+  return [self countOfSectionEntries];
+}
+
+- (id)objectInNodesAtIndex:(NSUInteger)index
+{
+  return [self objectInSectionEntriesAtIndex:index];
+}
+
+- (BOOL)isLeafNode
+{
+  return NO;
+}
+
+- (NSString *)nodeLocalizedName
+{
+  return [[self localizedName] uppercaseString];
+}
+
 @end

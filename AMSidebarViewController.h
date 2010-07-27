@@ -9,17 +9,18 @@
 #import <Cocoa/Cocoa.h>
 
 
-@class AMSections;
+@class AMSections, AMSection;
+@protocol AMSectionEntry;
 
 @interface AMSidebarViewController : NSViewController <NSOutlineViewDelegate> {
   AMSections *sections;
   NSOutlineView *outlineView;
+  NSArray *selectionIndexPaths;
 }
 
 @property(nonatomic, readwrite, assign) NSOutlineView *outlineView;
 @property(nonatomic, readwrite, retain) AMSections *sections;
-
-- (IBAction)selectRowAction:(id)sender;
+@property(nonatomic, readwrite, retain) NSArray *selectionIndexPaths;
 
 @end
 
