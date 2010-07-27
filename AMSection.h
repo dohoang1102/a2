@@ -12,9 +12,12 @@
 
 @protocol AMSectionEntry;
 
-@interface AMSection : NSWindowController <AMSectionNode> {
+@interface AMSection : NSObject {
 }
 
+@end
+
+@interface AMSection (AMSectionTreeNode) <AMSectionNode>
 @end
 
 @interface AMSection (AMSectionAbstract)

@@ -17,6 +17,14 @@
 @implementation AMSnippetsSection
 @synthesize snippets;
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+  if([key isEqualToString:@"nodes"]) {
+    return [NSSet setWithObject:@"sectionEntries"];
+  }
+  return [super keyPathsForValuesAffectingValueForKey:key];
+}
+
 - (id)init
 {
   if(self = [super init]) {
@@ -33,9 +41,9 @@
 - (void)timerDidFire:(NSTimer *)timer
 {
   NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:[snippets count]];
-  [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:@"nodes"];
+  [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:@"sectionEntries"];
   [snippets addObject:[[[AMSnippet alloc] initWithTitle:[NSString stringWithFormat:@"%@", [NSDate date]]] autorelease]];
-  [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:@"nodes"];
+  [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:@"sectionEntries"];
 }
 
 - (void)dealloc

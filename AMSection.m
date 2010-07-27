@@ -10,6 +10,9 @@
 
 
 @implementation AMSection
+@end
+
+@implementation AMSection (AMSectionTreeNode)
 
 - (NSUInteger)countOfNodes
 {
