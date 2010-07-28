@@ -35,4 +35,9 @@
   return document;
 }
 
+- (NSUInteger)maximumRecentDocumentCount
+{
+  return 5;
+}
+
 @end
