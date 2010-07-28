@@ -23,6 +23,8 @@
 		2199B35711FF8698002E67A7 /* SetupAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199B35611FF8698002E67A7 /* SetupAccount.xib */; };
 		2199B35B11FF8B44002E67A7 /* AMSetupAccountSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B35A11FF8B44002E67A7 /* AMSetupAccountSheetController.m */; };
 		2199B37811FF8D93002E67A7 /* NSWindow+AMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2199B37711FF8D93002E67A7 /* NSWindow+AMAdditions.m */; };
+		21AA26CD12008AA6003F1B7A /* AMDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AA26CC12008AA6003F1B7A /* AMDocumentController.m */; };
+		21AA26D312008B63003F1B7A /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AA26D212008B63003F1B7A /* AMApplicationDelegate.m */; };
 		21E035A911FE05C30043F09B /* AMSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035A811FE05C30043F09B /* AMSite.m */; };
 		21E035B211FE074F0043F09B /* AMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E035B111FE074F0043F09B /* AMServer.m */; };
 		21E0363411FE0E0D0043F09B /* AMDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E0363311FE0E0D0043F09B /* AMDocumentWindowController.m */; };
@@ -73,6 +75,10 @@
 		2199B35A11FF8B44002E67A7 /* AMSetupAccountSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSetupAccountSheetController.m; sourceTree = "<group>"; };
 		2199B37611FF8D93002E67A7 /* NSWindow+AMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+AMAdditions.h"; sourceTree = "<group>"; };
 		2199B37711FF8D93002E67A7 /* NSWindow+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+AMAdditions.m"; sourceTree = "<group>"; };
+		21AA26CB12008AA6003F1B7A /* AMDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDocumentController.h; sourceTree = "<group>"; };
+		21AA26CC12008AA6003F1B7A /* AMDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDocumentController.m; sourceTree = "<group>"; };
+		21AA26D112008B63003F1B7A /* AMApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMApplicationDelegate.h; sourceTree = "<group>"; };
+		21AA26D212008B63003F1B7A /* AMApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMApplicationDelegate.m; sourceTree = "<group>"; };
 		21E035A711FE05C30043F09B /* AMSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSite.h; sourceTree = "<group>"; };
 		21E035A811FE05C30043F09B /* AMSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSite.m; sourceTree = "<group>"; };
 		21E035B011FE074F0043F09B /* AMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMServer.h; sourceTree = "<group>"; };
@@ -274,6 +280,10 @@
 			children = (
 				2A37F4AEFDCFA73011CA2CEA /* AMDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* AMDocument.m */,
+				21AA26CB12008AA6003F1B7A /* AMDocumentController.h */,
+				21AA26CC12008AA6003F1B7A /* AMDocumentController.m */,
+				21AA26D112008B63003F1B7A /* AMApplicationDelegate.h */,
+				21AA26D212008B63003F1B7A /* AMApplicationDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -397,6 +407,8 @@
 				2199B18311FF72FB002E67A7 /* AMSection+AMSectionNode.m in Sources */,
 				2199B35B11FF8B44002E67A7 /* AMSetupAccountSheetController.m in Sources */,
 				2199B37811FF8D93002E67A7 /* NSWindow+AMAdditions.m in Sources */,
+				21AA26CD12008AA6003F1B7A /* AMDocumentController.m in Sources */,
+				21AA26D312008B63003F1B7A /* AMApplicationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

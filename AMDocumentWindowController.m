@@ -57,7 +57,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 {
   [super showWindow:sender];
   
-  [AMSetupAccountSheetController presentSetupAccountSheetForWindow:[self window] withModel:nil delegate:nil];
+  // [AMSetupAccountSheetController presentSetupAccountSheetForWindow:[self window] withModel:nil delegate:nil];
 }
 
 - (void)dealloc
