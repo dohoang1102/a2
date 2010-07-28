@@ -9,14 +9,14 @@
 #import <Cocoa/Cocoa.h>
 
 
-@class AMDispatch, AMServer;
+@class AMDispatch, AMServer, AMSession;
 @protocol AMSetupAccountSheetControllerDelegate;
 
 @interface AMSetupAccountSheetController : NSWindowController {
   id<AMSetupAccountSheetControllerDelegate> delegate;
-  BOOL busy;
   AMDispatch *dispatch;
   AMServer *server;
+  AMSession *session;
 }
 
 + (void)showSetupAccountSheetForWindow:(NSWindow *)window
@@ -24,8 +24,8 @@
                               dispatch:(AMDispatch *)dispatch
                               delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate;
 
-@property(nonatomic, readonly) BOOL busy;
 @property(nonatomic, readonly, retain) AMServer *server;
+@property(nonatomic, readonly, retain) AMSession *session;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)create:(id)sender;

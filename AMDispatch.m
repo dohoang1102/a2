@@ -34,6 +34,7 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
 - (id)init
 {
   if(self = [super init]) {
+    NSLog(@"%@ %s", [self className], _cmd);
     connections = [[NSMutableDictionary alloc] init];
     [self addObserver:self forKeyPath:@"baseURL" options:NSKeyValueObservingOptionNew context:&AMDispatchContext];
     [self addObserver:self forKeyPath:@"URLPrefix" options:NSKeyValueObservingOptionNew context:&AMDispatchContext];
@@ -102,8 +103,6 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
 
 - (void)addConnection:(AMDispatchConnection *)connection
 {
-  NSLog(@"%@ %s %@", [self className], _cmd, connection.operationID);
-
   [connections setObject:connection forKey:connection.operationID];
   [connection start];
   
@@ -114,8 +113,6 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
 
 - (void)connectionDidFinish:(AMDispatchConnection *)connection
 {
-  NSLog(@"%@ %s %@", [self className], _cmd, connection.operationID);
-
   AMDispatchOperationID operationID = connection.operationID;
   [connections removeObjectForKey:operationID];
   
@@ -145,11 +142,11 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
                                                     userInfo:userInfo];
   
   AMDispatchConnection *connection;
-  connection= [[AMDispatchConnection alloc] initWithOperationID:operationId
-                                                            URL:url 
-                                                     parameters:[self mergeDefaultParameters:parameters] 
-                                                       userInfo:connectionUserInfo 
-                                                       delegate:self];
+  connection = [[AMDispatchConnection alloc] initWithOperationID:operationId
+                                                             URL:url 
+                                                      parameters:[self mergeDefaultParameters:parameters] 
+                                                        userInfo:connectionUserInfo 
+                                                        delegate:self];
   
   [self addConnection:connection];
   [connection release];
@@ -168,7 +165,12 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
   if([relativePath hasPrefix:@"/"]) {
     relativePath = [relativePath substringFromIndex:1];
   }
+  
   NSURL *absoluteURL = [URL URLByAppendingPathComponent:relativePath];
+  if(!absoluteURL) {
+    return nil;
+  }
+  
   return [self performOperationNamed:name 
                              withURL:absoluteURL 
                           parameters:parameters 
@@ -202,10 +204,17 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
 {
   [connection retain];
   [self connectionDidFinish:connection];
-  
-  AMTarget *target = [connection userInfo];
-  [target.object performSelector:target.success withObject:result withObject:target.userInfo];
-  [connection release];
+ 
+  NSError *error = nil;
+  id modified = [delegate dispatch:self didReceiveResult:result error:&error];
+  if(!modified ){
+    AMTarget *target = [connection userInfo];
+    [target.object performSelector:target.failed withObject:error withObject:target.userInfo];
+  } else {
+    AMTarget *target = [connection userInfo];
+    [target.object performSelector:target.success withObject:modified withObject:target.userInfo];
+  }
+  [connection release];    
 }
 
 - (void)dispatchConnection:(AMDispatchConnection *)connection didFailWithError:(NSError *)error

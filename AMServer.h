@@ -10,12 +10,12 @@
 
 
 @interface AMServer : NSObject <NSCoding> {
-  NSURL *url;
+  NSString *url;
   NSString *login;
   NSString *password;
 }
 
-@property(nonatomic, readwrite, copy) NSURL *url;
+@property(nonatomic, readwrite, copy) NSString *url;
 @property(nonatomic, readwrite, copy) NSString *login;
 @property(nonatomic, readwrite, copy) NSString *password;
 

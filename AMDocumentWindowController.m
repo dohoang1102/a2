@@ -37,7 +37,6 @@ static NSDictionary *AMSectionViewControllerClasses;
 - (id)init
 {
   if(self = [super initWithWindowNibName:@"Document"]) {
-    NSLog(@"%@ %s", [self className], _cmd);
     sidebar = [[AMSidebarViewController alloc] init];
     sidebar.delegate = self;
   }
@@ -46,8 +45,6 @@ static NSDictionary *AMSectionViewControllerClasses;
 
 - (void)windowDidLoad
 {
-  NSLog(@"%@ %s %@", [self className], _cmd, self.document);
-
   [sidebarView setController:sidebar];
   [self setContentViewControllerForSection:nil sectionEntry:nil];
 }
@@ -59,7 +56,6 @@ static NSDictionary *AMSectionViewControllerClasses;
 
 - (void)dealloc
 {
-  NSLog(@"%@ %s", [self className], _cmd);
   self.sidebar = nil;
   self.content = nil;
   [super dealloc];

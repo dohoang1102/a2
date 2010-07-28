@@ -28,4 +28,18 @@
   return success;  
 }
 
+- (void)makeInitialFirstResponderFirstResponder
+{
+  NSView *responder = [self initialFirstResponder];
+  if(responder) {
+    [self makeFirstResponder:responder];
+  }  
+}
+
+- (void)showAlertSheetWithTitle:(NSString *)title forError:(NSError *)error
+{
+  NSString *message = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+  NSBeginAlertSheet(title, @"Done", nil, nil, self, nil, nil, nil, nil, @"%@", message);
+}
+
 @end

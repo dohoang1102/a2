@@ -20,7 +20,6 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 - (id)init
 {
   if(self = [super initWithNibName:@"Sidebar" bundle:nil]) {
-    NSLog(@"%@ %s", [self className], _cmd);
     sections = [[AMSections alloc] init];
     
     [self addObserver:self 
@@ -33,7 +32,6 @@ static void * AMSidebarViewControllerContext = (void *) @"AMSidebarViewControlle
 
 - (void)dealloc
 {
-  NSLog(@"%@ %s", [self className], _cmd);
   [self removeObserver:self forKeyPath:@"selectionIndexPaths"];
   delegate = nil;
   self.sections = nil;

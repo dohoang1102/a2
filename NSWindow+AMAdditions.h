@@ -13,4 +13,8 @@
 
 - (BOOL)endEditing;
 
+- (void)makeInitialFirstResponderFirstResponder;
+
+- (void)showAlertSheetWithTitle:(NSString *)title forError:(NSError *)error;
+
 @end

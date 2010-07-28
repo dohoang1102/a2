@@ -17,6 +17,16 @@
 @implementation AMDocument
 @synthesize site, dispatch;
 
+- (id)init
+{
+  if(self = [super init]) {
+    dispatch = [[AMDispatch alloc] init];
+    dispatch.URLPrefix = @"/rpc";
+    dispatch.delegate = self;
+  }
+  return self;
+}
+
 - (void)dealloc
 {
   self.dispatch = nil;
@@ -46,12 +56,6 @@
 
 - (void)showSetupAccountSheet
 {
-//  dispatch = [[AMDispatch alloc] init];
-//  dispatch.delegate = self;
-//  dispatch.baseURL = [NSURL URLWithString:@"http://localhost:8080"];
-//  dispatch.URLPrefix = @"/rpc";
-//  dispatch.defaultParameters = [NSDictionary dictionaryWithObject:@"1" forKey:@"version"];
-    
   site = [[AMSite alloc] init];
   [AMSetupAccountSheetController showSetupAccountSheetForWindow:[self windowForSheet] 
                                                       withModel:[site server] 

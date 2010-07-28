@@ -70,5 +70,5 @@ typedef NSString *AMDispatchOperationID;
 
 @protocol AMDispatchDelegate
 // return modified dictionary if result is successful, otherwise nil and fill NSError
-- (NSDictionary *)dispatch:(AMDispatch *)sender didReceiveResult:(NSDictionary *)result error:(NSError **)error;
+- (id)dispatch:(AMDispatch *)sender didReceiveResult:(id)result error:(NSError **)error;
 @end

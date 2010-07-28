@@ -39,7 +39,7 @@
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@ %p: %@ %@ %@>", [self className], self, url, login, password];
+  return [NSString stringWithFormat:@"<%@ %p: url=%@, login=%@, password=%@>", [self className], self, url, login, password];
 }
 
 @end

@@ -25,6 +25,6 @@
 
 // -createDidSucceed:
 // -createDidFail:withError:
-- (void)createWithTarget:(id)target success:(SEL)success failed:(SEL)failed;
+- (void)createWithURL:(NSString *)url target:(id)target success:(SEL)success failed:(SEL)failed;
 
 @end

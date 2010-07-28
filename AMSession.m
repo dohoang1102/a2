@@ -23,20 +23,32 @@
 
 #pragma mark -
 
-- (void)createWithTarget:(id)target success:(SEL)success failed:(SEL)failed
+- (void)createWithURL:(NSString *)url target:(id)target success:(SEL)success failed:(SEL)failed
 {
   if(!self.busy && !self.created) {
+    if(!url) {
+      return;
+    }
+    
+    NSURL *URL = [NSURL URLWithString:url];
+    if(!URL) {
+      return;
+    }
+    
     self.busy = YES;
-    [dispatch performOperationNamed:@"Logging in" 
-                           withPath:@"/session/create" 
-                         parameters:[NSDictionary dictionaryWithObjectsAndKeys:
-                                     self.login,    @"login",
-                                     self.password, @"password",
-                                     nil] 
-                             target:self 
-                            success:@selector(didCreateWithResult:userInfo:) 
-                             failed:@selector(createDidFailWithError:userInfo:) 
-                           userInfo:[AMTarget targetWithObject:target success:success failed:failed]];    
+    [dispatch setBaseURL:URL];
+    if(![dispatch performOperationNamed:@"Logging in" 
+                               withPath:@"/session/create" 
+                             parameters:[NSDictionary dictionaryWithObjectsAndKeys:
+                                         self.login,    @"login",
+                                         self.password, @"password",
+                                         nil] 
+                                 target:self 
+                                success:@selector(didCreateWithResult:userInfo:) 
+                                 failed:@selector(createDidFailWithError:userInfo:) 
+                               userInfo:[AMTarget targetWithObject:target success:success failed:failed]]) {
+      self.busy = NO;
+    }
   }
 }
 
@@ -54,6 +66,11 @@
   self.created = NO;
   self.key = nil;
   [target.object performSelector:target.failed withObject:self withObject:error];
+}
+
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"<%@ %p: key=%@, login=%@, password=%@>", [self className], self, key, login, password];
 }
 
 @end

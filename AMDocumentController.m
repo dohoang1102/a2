@@ -12,22 +12,6 @@
 
 @implementation AMDocumentController
 
-- (id)init
-{
-  if(self = [super init]) {
-    NSLog(@"%@ %s", [self className], _cmd);
-  }
-  return self;
-}
-
-- (void)dealloc
-{
-  NSLog(@"%@ %s", [self className], _cmd);
-  [super dealloc];
-}
-
-#pragma mark -
-
 - (id)openUntitledDocumentAndDisplay:(BOOL)displayDocument error:(NSError **)outError
 {
   AMDocument *document = [super openUntitledDocumentAndDisplay:displayDocument error:outError];
@@ -37,7 +21,7 @@
 
 - (NSUInteger)maximumRecentDocumentCount
 {
-  return 5;
+  return 10;
 }
 
 @end
