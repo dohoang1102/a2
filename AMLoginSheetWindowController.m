@@ -31,7 +31,7 @@
      modalForWindow:window 
       modalDelegate:controller 
      didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
-        contextInfo:nil];  
+        contextInfo:nil];
 }
 
 - (id)init
@@ -71,6 +71,7 @@
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
   [self.delegate loginSheetDidEnd:self returnCode:returnCode];
+  [self release];
 }
 
 @end
