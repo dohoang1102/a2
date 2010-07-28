@@ -12,7 +12,7 @@
 
 
 @implementation AMSession
-@synthesize login, password;
+@synthesize busy, created, login, password;
 
 - (void)dealloc
 {
@@ -25,26 +25,35 @@
 
 - (void)createWithTarget:(id)target success:(SEL)success failed:(SEL)failed
 {
-  [dispatch performOperationNamed:@"Logging in" 
-                         withPath:@"/session/create" 
-                       parameters:[NSDictionary dictionaryWithObjectsAndKeys:
-                                   self.login,    @"login",
-                                   self.password, @"password",
-                                   nil] 
-                           target:self 
-                          success:@selector(didCreateWithResult:userInfo:) 
-                           failed:@selector(createDidFailWithError:userInfo:) 
-                         userInfo:[AMTarget targetWithObject:target success:success failed:failed]];
+  if(!self.busy && !self.created) {
+    self.busy = YES;
+    [dispatch performOperationNamed:@"Logging in" 
+                           withPath:@"/session/create" 
+                         parameters:[NSDictionary dictionaryWithObjectsAndKeys:
+                                     self.login,    @"login",
+                                     self.password, @"password",
+                                     nil] 
+                             target:self 
+                            success:@selector(didCreateWithResult:userInfo:) 
+                             failed:@selector(createDidFailWithError:userInfo:) 
+                           userInfo:[AMTarget targetWithObject:target success:success failed:failed]];    
+  }
 }
 
-- (void)didCreateWithResult:(NSDictionary *)result userInfo:(id)userInfo
+- (void)didCreateWithResult:(NSDictionary *)result userInfo:(AMTarget *)target
 {
-  
+  self.busy = NO;
+  self.created = YES;
+  self.key = [result objectForKey:@"key"];
+  [target.object performSelector:target.success withObject:self];
 }
 
-- (void)createDidFailWithError:(NSError *)error userInfo:(id)userInfo
+- (void)createDidFailWithError:(NSError *)error userInfo:(AMTarget *)target
 {
-  
+  self.busy = NO;
+  self.created = NO;
+  self.key = nil;
+  [target.object performSelector:target.failed withObject:self withObject:error];
 }
 
 @end

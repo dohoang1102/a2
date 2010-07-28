@@ -10,9 +10,15 @@
 #import "AMModel.h"
 
 @interface AMSession : AMModel {
+  BOOL busy;
+  BOOL created;
+
   NSString *login;
   NSString *password;
 }
+
+@property(nonatomic, readwrite, getter=isBusy) BOOL busy;
+@property(nonatomic, readwrite, getter=isCreated) BOOL created;
 
 @property(nonatomic, readwrite, copy) NSString *login;
 @property(nonatomic, readwrite, copy) NSString *password;

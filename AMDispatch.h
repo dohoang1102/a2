@@ -7,18 +7,33 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AMDispatchConnection.h"
+
+
+extern NSString *const AMDispatchDidBecomeBusyNotification;
+extern NSString *const AMDispatchDidBecomeIdleNotification;
+
+
+extern NSString *const AMDispatchErrorDomain;
+
+extern NSInteger const AMDispatchConnectionFailedErrorCode;
+extern NSInteger const AMDispatchInvalidJSONErrorCode;
+extern NSInteger const AMDispatchResponseStatusErrorCode;
 
 
 typedef NSString *AMDispatchOperationID;
 
+
 @protocol AMDispatchDelegate;
 
-@interface AMDispatch : NSObject {
+@interface AMDispatch : NSObject <AMDispatchConnectionDelegate> {
   id<AMDispatchDelegate> delegate;
   NSURL *URL;
   NSURL *baseURL;
   NSString *URLPrefix;
   NSDictionary *defaultParameters;
+  
+  NSMutableDictionary *connections;
 }
 
 @property(nonatomic, readwrite, assign) id<AMDispatchDelegate> delegate;
@@ -27,6 +42,10 @@ typedef NSString *AMDispatchOperationID;
 @property(nonatomic, readwrite, copy) NSURL *baseURL;
 @property(nonatomic, readwrite, copy) NSString *URLPrefix;
 @property(nonatomic, readwrite, retain) NSDictionary *defaultParameters;
+
+
+// -(void)operationDidSucceedWithResult:(id)result userInfo:(id)userInfo;
+// -(void)operationDidFailWithError:(NSError *)error userInfo(id)userInfo;
 
 - (AMDispatchOperationID)performOperationNamed:(NSString *)name
                                        withURL:(NSURL *)url

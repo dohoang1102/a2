@@ -17,6 +17,7 @@
 @interface AMDocument : NSDocument <AMSetupAccountSheetControllerDelegate, AMDispatchDelegate> {
   AMDispatch *dispatch;
   AMSite *site;
+  NSTimer *timer;
 }
 
 @property(nonatomic, readwrite, retain) AMSite *site;

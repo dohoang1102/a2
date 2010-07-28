@@ -19,8 +19,6 @@
 
 - (void)dealloc
 {
-  [dispatch cancelAllOperations];
-  self.dispatch.delegate = nil;
   self.dispatch = nil;
   self.site = nil;
   [super dealloc];
@@ -48,6 +46,12 @@
 
 - (void)showSetupAccountSheet
 {
+//  dispatch = [[AMDispatch alloc] init];
+//  dispatch.delegate = self;
+//  dispatch.baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+//  dispatch.URLPrefix = @"/rpc";
+//  dispatch.defaultParameters = [NSDictionary dictionaryWithObject:@"1" forKey:@"version"];
+    
   site = [[AMSite alloc] init];
   [AMSetupAccountSheetController showSetupAccountSheetForWindow:[self windowForSheet] 
                                                       withModel:[site server] 
@@ -62,6 +66,13 @@
   } else if(code == NSCancelButton) {
     [self close];
   }
+}
+
+- (void)close
+{
+  [timer invalidate];
+  timer = nil;
+  [super close];
 }
 
 #pragma mark -
