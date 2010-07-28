@@ -17,4 +17,8 @@
 @property(nonatomic, readwrite, copy) NSString *login;
 @property(nonatomic, readwrite, copy) NSString *password;
 
+// -createDidSucceed:
+// -createDidFail:withError:
+- (void)createWithTarget:(id)target success:(SEL)success failed:(SEL)failed;
+
 @end

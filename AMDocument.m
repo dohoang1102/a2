@@ -15,12 +15,33 @@
 @end
 
 @implementation AMDocument
-@synthesize site;
+@synthesize site, dispatch;
 
 - (void)dealloc
 {
+  [dispatch cancelAllOperations];
+  self.dispatch.delegate = nil;
+  self.dispatch = nil;
   self.site = nil;
   [super dealloc];
+}
+
+#pragma mark -
+
+- (NSDictionary *)dispatch:(AMDispatch *)sender didReceiveResult:(NSDictionary *)result error:(NSError **)error
+{
+  NSString *status = [result objectForKey:@"status"];
+  if([status isEqualToString:@"success"]) {
+    return [result objectForKey:@"data"];
+  } else {
+    NSString *reason = [result objectForKey:@"reason"];
+    if(!reason) {
+      reason = @"Server didn't return reason";
+    }
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:reason forKey:NSLocalizedDescriptionKey];
+    *error = [NSError errorWithDomain:@"AMDispatchErrorDomain" code:101 userInfo:userInfo];
+    return nil;
+  }
 }
 
 #pragma mark -
@@ -30,6 +51,7 @@
   site = [[AMSite alloc] init];
   [AMSetupAccountSheetController showSetupAccountSheetForWindow:[self windowForSheet] 
                                                       withModel:[site server] 
+                                                       dispatch:dispatch
                                                        delegate:self];
 }
 

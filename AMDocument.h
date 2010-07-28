@@ -9,15 +9,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AMSetupAccountSheetController.h"
+#import "AMDispatch.h"
 
 
 @class AMSite, AMDocumentWindowController;
 
-@interface AMDocument : NSDocument <AMSetupAccountSheetControllerDelegate> {
+@interface AMDocument : NSDocument <AMSetupAccountSheetControllerDelegate, AMDispatchDelegate> {
+  AMDispatch *dispatch;
   AMSite *site;
 }
 
 @property(nonatomic, readwrite, retain) AMSite *site;
+@property(nonatomic, readwrite, retain) AMDispatch *dispatch;
 
 - (void)didOpenUntitledDocument;
 

@@ -16,7 +16,7 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
 @end
 
 @implementation AMDispatch
-@synthesize URL, baseURL, URLPrefix, defaultParameters;
+@synthesize delegate, URL, baseURL, URLPrefix, defaultParameters;
 
 - (id)init
 {
@@ -97,6 +97,16 @@ static void * AMDispatchContext = (void *) @"AMDispatchContext";
                              success:success 
                               failed:failed 
                             userInfo:userInfo];
+}
+
+- (void)cancelOperation:(AMDispatchOperationID)operation
+{
+  
+}
+
+- (void)cancelAllOperations
+{
+  
 }
 
 @end

@@ -11,12 +11,17 @@
 
 typedef NSString *AMDispatchOperationID;
 
+@protocol AMDispatchDelegate;
+
 @interface AMDispatch : NSObject {
+  id<AMDispatchDelegate> delegate;
   NSURL *URL;
   NSURL *baseURL;
   NSString *URLPrefix;
   NSDictionary *defaultParameters;
 }
+
+@property(nonatomic, readwrite, assign) id<AMDispatchDelegate> delegate;
 
 @property(nonatomic, readonly, retain) NSURL *URL;
 @property(nonatomic, readwrite, copy) NSURL *baseURL;
@@ -39,4 +44,12 @@ typedef NSString *AMDispatchOperationID;
                                         failed:(SEL)failed
                                       userInfo:(id)userInfo;
 
+- (void)cancelOperation:(AMDispatchOperationID)operation;
+- (void)cancelAllOperations;
+
+@end
+
+@protocol AMDispatchDelegate
+// return modified dictionary if result is successful, otherwise nil and fill NSError
+- (NSDictionary *)dispatch:(AMDispatch *)sender didReceiveResult:(NSDictionary *)result error:(NSError **)error;
 @end
