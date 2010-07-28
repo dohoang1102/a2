@@ -50,6 +50,7 @@
 {
   self.delegate = nil;
   self.server = nil;
+  self.session = nil;
   self.dispatch = nil;
   [super dealloc];
 }
