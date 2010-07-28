@@ -37,4 +37,9 @@
   [super dealloc];
 }
 
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"<%@ %p: %@ %@ %@>", [self className], self, url, login, password];
+}
+
 @end

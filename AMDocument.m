@@ -27,8 +27,9 @@
 
 - (void)showSetupAccountSheet
 {
+  site = [[AMSite alloc] init];
   [AMSetupAccountSheetController showSetupAccountSheetForWindow:[self windowForSheet] 
-                                                      withModel:[[self site] server] 
+                                                      withModel:[site server] 
                                                        delegate:self];
 }
 

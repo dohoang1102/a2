@@ -23,6 +23,7 @@
                               delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate;
 
 @property(nonatomic, readonly) BOOL busy;
+@property(nonatomic, readonly, retain) AMServer *server;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)create:(id)sender;

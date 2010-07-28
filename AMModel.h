@@ -9,9 +9,16 @@
 #import <Cocoa/Cocoa.h>
 
 
+@class AMDispatch;
+
 @interface AMModel : NSObject {
+  AMDispatch *dispatch;
   NSString *key;
 }
+
+- (id)initWithDispatch:(AMDispatch *)dispatch;
+
+@property(nonatomic, readonly, retain) AMDispatch *dispatch;
 
 @property(nonatomic, readwrite, copy) NSString *key;
 

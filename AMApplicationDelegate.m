@@ -9,7 +9,6 @@
 #import "AMApplicationDelegate.h"
 #import "AMDocumentController.h"
 
-
 @implementation AMApplicationDelegate
 @synthesize documentController;
 

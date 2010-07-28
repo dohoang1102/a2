@@ -58,6 +58,7 @@
 {
   [[self window] endEditing];
   self.busy = YES;
+  NSLog(@"%@", self.server);
   [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(timerDidFire:) userInfo:nil repeats:NO];
 }
 

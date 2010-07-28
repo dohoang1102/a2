@@ -15,7 +15,7 @@
 - (id)init
 {
   if(self = [super init]) {
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
+    // [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
   }
   return self;
 }

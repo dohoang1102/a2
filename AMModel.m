@@ -7,13 +7,32 @@
 //
 
 #import "AMModel.h"
+#import "AMDispatch.h"
 
+@interface AMModel ()
+@property(nonatomic, readwrite, retain) AMDispatch *dispatch;
+@end
 
 @implementation AMModel
-@synthesize key;
+@synthesize dispatch, key;
+
+- (id)init
+{
+  return [self initWithDispatch:nil];
+}
+
+- (id)initWithDispatch:(AMDispatch *)aDispatch
+{
+  NSParameterAssert(aDispatch != nil);
+  if(self = [super init]) {
+    self.dispatch = aDispatch;
+  }
+  return self;
+}
 
 - (void)dealloc
 {
+  self.dispatch = nil;
   self.key = nil;
   [super dealloc];
 }
