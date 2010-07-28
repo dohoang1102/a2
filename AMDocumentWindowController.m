@@ -7,7 +7,7 @@
 //
 
 #import "AMDocumentWindowController.h"
-#import "AMLoginSheetWindowController.h"
+#import "AMSetupAccountSheetController.h"
 #import "AMSidebarViewController.h"
 #import "NSView+AMAdditions.h"
 #import "AMSnippetsSection.h"
@@ -57,7 +57,7 @@ static NSDictionary *AMSectionViewControllerClasses;
 {
   [super showWindow:sender];
   
-  [AMLoginSheetWindowController presentLoginSheetForWindow:[self window] withModel:nil delegate:nil];
+  [AMSetupAccountSheetController presentSetupAccountSheetForWindow:[self window] withModel:nil delegate:nil];
 }
 
 - (void)dealloc

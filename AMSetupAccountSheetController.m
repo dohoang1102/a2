@@ -1,29 +1,29 @@
 //
-//  AMLoginSheetWindowController.m
+//  AMSetupAccountSheetController.m
 //  a2
 //
 //  Created by ampatspell on 7/28/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "AMLoginSheetWindowController.h"
+#import "AMSetupAccountSheetController.h"
 #import "NSWindow+AMAdditions.h"
 
 
-@interface AMLoginSheetWindowController ()
-@property(nonatomic, readwrite, assign) id<AMLoginSheetWindowControllerDelegate> delegate;
+@interface AMSetupAccountSheetController ()
+@property(nonatomic, readwrite, assign) id<AMSetupAccountSheetControllerDelegate> delegate;
 @property(nonatomic, readwrite) BOOL busy;
 @property(nonatomic, readwrite, retain) AMServer *server;
 @end
 
-@implementation AMLoginSheetWindowController
+@implementation AMSetupAccountSheetController
 @synthesize busy, delegate, server;
 
-+ (void)presentLoginSheetForWindow:(NSWindow *)window
++ (void)presentSetupAccountSheetForWindow:(NSWindow *)window
                          withModel:(AMServer *)model
-                          delegate:(id<AMLoginSheetWindowControllerDelegate>)delegate
+                          delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate
 {
-  AMLoginSheetWindowController *controller = [[AMLoginSheetWindowController alloc] init];
+  AMSetupAccountSheetController *controller = [[AMSetupAccountSheetController alloc] init];
   controller.delegate = delegate;
   controller.server = model;
   
@@ -36,7 +36,7 @@
 
 - (id)init
 {
-  if(self = [super initWithWindowNibName:@"Login"]) {
+  if(self = [super initWithWindowNibName:@"SetupAccount"]) {
   }
   return self;
 }
