@@ -11,6 +11,9 @@
 #import "AMSite.h"
 
 
+@interface AMDocument ()
+@end
+
 @implementation AMDocument
 @synthesize site;
 
@@ -18,6 +21,31 @@
 {
   self.site = nil;
   [super dealloc];
+}
+
+#pragma mark -
+
+- (void)showSetupAccountSheet
+{
+  [AMSetupAccountSheetController showSetupAccountSheetForWindow:[self windowForSheet] 
+                                                      withModel:[[self site] server] 
+                                                       delegate:self];
+}
+
+- (void)setupAccountSheetDidEnd:(AMSetupAccountSheetController *)controller returnCode:(NSUInteger)code
+{
+  if(code == NSOKButton) {
+    [self updateChangeCount:NSChangeDone];
+  } else if(code == NSCancelButton) {
+    [self close];
+  }
+}
+
+#pragma mark -
+
+- (void)didOpenUntitledDocument
+{
+  [self showSetupAccountSheet];
 }
 
 #pragma mark -

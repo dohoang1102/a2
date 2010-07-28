@@ -18,9 +18,9 @@
   AMServer *server;
 }
 
-+ (void)presentSetupAccountSheetForWindow:(NSWindow *)window
-                         withModel:(AMServer *)model
-                          delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate;
++ (void)showSetupAccountSheetForWindow:(NSWindow *)window
+                             withModel:(AMServer *)model
+                              delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate;
 
 @property(nonatomic, readonly) BOOL busy;
 

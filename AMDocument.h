@@ -8,14 +8,17 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "AMSetupAccountSheetController.h"
 
 
-@class AMSite;
+@class AMSite, AMDocumentWindowController;
 
-@interface AMDocument : NSDocument {
+@interface AMDocument : NSDocument <AMSetupAccountSheetControllerDelegate> {
   AMSite *site;
 }
 
 @property(nonatomic, readwrite, retain) AMSite *site;
+
+- (void)didOpenUntitledDocument;
 
 @end

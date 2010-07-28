@@ -7,6 +7,7 @@
 //
 
 #import "AMDocumentController.h"
+#import "AMDocument.h"
 
 
 @implementation AMDocumentController
@@ -23,6 +24,15 @@
 {
   NSLog(@"%@ %s", [self className], _cmd);
   [super dealloc];
+}
+
+#pragma mark -
+
+- (id)openUntitledDocumentAndDisplay:(BOOL)displayDocument error:(NSError **)outError
+{
+  AMDocument *document = [super openUntitledDocumentAndDisplay:displayDocument error:outError];
+  [document didOpenUntitledDocument];
+  return document;
 }
 
 @end

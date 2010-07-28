@@ -19,9 +19,9 @@
 @implementation AMSetupAccountSheetController
 @synthesize busy, delegate, server;
 
-+ (void)presentSetupAccountSheetForWindow:(NSWindow *)window
-                         withModel:(AMServer *)model
-                          delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate
++ (void)showSetupAccountSheetForWindow:(NSWindow *)window
+                             withModel:(AMServer *)model
+                              delegate:(id<AMSetupAccountSheetControllerDelegate>)delegate
 {
   AMSetupAccountSheetController *controller = [[AMSetupAccountSheetController alloc] init];
   controller.delegate = delegate;
@@ -70,7 +70,7 @@
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-  [self.delegate loginSheetDidEnd:self returnCode:returnCode];
+  [self.delegate setupAccountSheetDidEnd:self returnCode:returnCode];
   [self release];
 }
 
