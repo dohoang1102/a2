@@ -12,15 +12,16 @@
 #import "AMDispatch.h"
 
 
-@class AMSite, AMDocumentWindowController;
+@class AMSite, AMSession, AMDocumentWindowController;
 
 @interface AMDocument : NSDocument <AMSetupAccountSheetControllerDelegate, AMDispatchDelegate> {
   AMDispatch *dispatch;
   AMSite *site;
-  NSTimer *timer;
+  AMSession *session;
 }
 
 @property(nonatomic, readwrite, retain) AMSite *site;
+@property(nonatomic, readwrite, retain) AMSession *session;
 @property(nonatomic, readwrite, retain) AMDispatch *dispatch;
 
 - (void)didOpenUntitledDocument;

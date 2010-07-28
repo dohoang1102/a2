@@ -23,20 +23,10 @@
 
 #pragma mark -
 
-- (void)createWithURL:(NSString *)url target:(id)target success:(SEL)success failed:(SEL)failed
+- (void)createWithTarget:(id)target success:(SEL)success failed:(SEL)failed
 {
   if(!self.busy && !self.created) {
-    if(!url) {
-      return;
-    }
-    
-    NSURL *URL = [NSURL URLWithString:url];
-    if(!URL) {
-      return;
-    }
-    
     self.busy = YES;
-    [dispatch setBaseURL:URL];
     if(![dispatch performOperationNamed:@"Logging in" 
                                withPath:@"/session/create" 
                              parameters:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -49,6 +39,18 @@
                                userInfo:[AMTarget targetWithObject:target success:success failed:failed]]) {
       self.busy = NO;
     }
+  }  
+}
+
+- (void)createWithURL:(NSString *)url target:(id)target success:(SEL)success failed:(SEL)failed
+{
+  if(!self.busy && !self.created) {
+    if(!url) { return; }
+    NSURL *URL = [NSURL URLWithString:url];
+    if(!URL) { return; }
+    [dispatch setBaseURL:URL];
+    
+    [self createWithTarget:target success:success failed:failed];
   }
 }
 

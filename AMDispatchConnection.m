@@ -96,7 +96,7 @@
 
 - (void)sendRequest
 {
-  NSLog(@"AMDispatch • %@%@\n%@", self.url, (retryCount > 0 ? @" (Retry)" : @""), self.parameters);
+  NSLog(@"AMDispatch » %@%@\n%@", self.url, (retryCount > 0 ? @" (Retry)" : @""), self.parameters);
   
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
   [request setCachePolicy:NSURLCacheStorageNotAllowed];
@@ -114,6 +114,7 @@
   NSString *bodyString = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
   id json = [bodyString JSONValue];
   if(json) {
+    NSLog(@"AMDispatch « %@%@\n%@", self.url, (retryCount > 0 ? @" (Retry)" : @""), json);
     [self RPCDidSucceedWithJSON:json];
   } else {
     [self RPCDidFailWithError:[self errorWithCode:AMDispatchInvalidJSONErrorCode 

@@ -9,13 +9,16 @@
 #import "AMDocument.h"
 #import "AMDocumentWindowController.h"
 #import "AMSite.h"
+#import "AMSession.h"
+#import "AMServer.h"
+#import "NSWindow+AMAdditions.h"
 
 
 @interface AMDocument ()
 @end
 
 @implementation AMDocument
-@synthesize site, dispatch;
+@synthesize site, session, dispatch;
 
 - (id)init
 {
@@ -31,6 +34,7 @@
 {
   self.dispatch = nil;
   self.site = nil;
+  self.session = nil;
   [super dealloc];
 }
 
@@ -66,24 +70,43 @@
 - (void)setupAccountSheetDidEnd:(AMSetupAccountSheetController *)controller returnCode:(NSUInteger)code
 {
   if(code == NSOKButton) {
+    self.session = controller.session;
     [self updateChangeCount:NSChangeDone];
   } else if(code == NSCancelButton) {
     [self close];
   }
 }
 
-- (void)close
+- (void)didOpenUntitledDocument
 {
-  [timer invalidate];
-  timer = nil;
-  [super close];
+  [self showSetupAccountSheet];
 }
 
 #pragma mark -
 
-- (void)didOpenUntitledDocument
+- (void)showLoginSheet
 {
-  [self showSetupAccountSheet];
+  // This will put modal sheet while fetching essential stuff. later.
+  
+  AMServer *server = site.server;
+  
+  dispatch.baseURL = [NSURL URLWithString:server.url];
+  
+  self.session = [[[AMSession alloc] initWithDispatch:dispatch] autorelease];
+  session.login = server.login;
+  session.password = server.password;
+  
+  [session createWithTarget:self success:@selector(didLogin:) failed:@selector(loginDidFail:withError:)];
+}
+
+- (void)didLogin:(AMSession *)sender
+{
+  NSLog(@"Logged in %@", sender.key);
+}
+
+- (void)loginDidFail:(AMSession *)session withError:(NSError *)error
+{
+  [[self windowForSheet] showAlertSheetWithTitle:@"Login failed" forError:error];
 }
 
 #pragma mark -
@@ -118,6 +141,7 @@
   NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
   self.site = [unarchiver decodeObjectForKey:@"site"];
   [unarchiver release];
+  [self showLoginSheet];
   return YES;
 }
 
