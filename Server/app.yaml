@@ -1,0 +1,10 @@
+application: zero-edit
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: views/static  
+- url: .*
+  script: main.py

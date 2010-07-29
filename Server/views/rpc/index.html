@@ -1,0 +1,127 @@
+{% extends "../common/base.html" %}
+
+{% block style %}
+  .form {
+    float: left;
+    width: 520px;
+  }
+    
+      .form .row {
+        margin: 0px 0px 5px 0px;
+      }
+      
+        .form .row .column {
+          float: left;
+          margin-right: 10px;
+        }
+    
+      .form label {
+        display: block;
+        margin-bottom: 3px;
+        font-weight: bold;
+      }
+      
+      .form input.textbox {
+        font-size: 12px;
+        padding: 3px;
+        width: 250px;
+      }
+
+      .form textarea.content {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 5px;
+        width: 510px;
+        height: 150px;
+        border: 1px solid #ddd;
+      }
+
+      .form input.submit { 
+      }
+      
+      .form .light {
+        margin-left: 5px;
+        color: #888;
+      }
+      
+        .form .light .code {
+          font-weight: bold;
+        }
+      
+  .result {
+    float: left;
+    width: 520px;
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0px 0px 0px;
+  }
+  
+    .result textarea {
+      font-weight: bold;
+      width: 100%;
+      height: 400px;
+      outline: none;
+      border: none;
+      background: transparent;
+    }
+    
+  .vdelimiter {
+    height: 20px;
+  }
+{% endblock %}
+
+{% block content %}
+  <h1>Remote Procedure Call &mdash; Test Form</h1>
+  
+  <div class="vdelimiter">&nbsp;</div>
+  
+  <div class="form">
+    <form method="post" action="/test">
+      <div class="row">
+        <div class="column">
+          <label>Namespace:</label>
+          <input type="text" class="textbox" name="namespace" value="{{ namespace }}"/>
+        </div>
+        <div class="column">
+          <label>Action:</label>
+          <input type="text" class="textbox" name="action" value="{{ action }}"/>
+        </div>
+        <br style="clear:both"/>
+      </div>
+      <div class="row">
+        <label>Content:</label>
+        <textarea name="content" class="content" spellcheck="false">{{ content }}</textarea>
+      </div>
+      <div class="row">
+        <input type="submit" class="submit" name="execute" value="Invoke"/>
+      </div>
+    </form>
+
+    <div class="vdelimiter">&nbsp;</div>
+
+    <form method="post" action="/test">
+      <div class="row">
+        <div class="column">
+          <label>Login:</label>
+          <input type="text" class="textbox" name="login"/>
+        </div>
+        <div class="column">
+          <label>Password:</label>
+          <input type="text" class="textbox" name="password"/>
+        </div>
+        <br style="clear:both"/>      
+      </div>
+      <div class="row">
+        <input type="submit" class="submit" name="login" value="Login"/>
+        <span class="light">Calls <span class="code">session/create</span> with <span class="code">{"login":"&lt;login&gt;","password":"&lt;password&gt;"}</span></span>
+      </div>
+    </form>
+    
+  </div>
+  {% if result %}
+  <div class="result">
+    <textarea spellcheck="false">{{ result }}</textarea>
+  </div>
+  {% endif %}
+  <br style="clear:both"/>
+{% endblock %}

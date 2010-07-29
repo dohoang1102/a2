@@ -1,0 +1,39 @@
+html, body {
+  background: #ddd;  
+}
+
+body {
+  font-family: "Lucida Grande", Verdana;
+  font-size: 11px;
+}
+
+a {
+  color: #990000;
+  text-decoration: none;
+}
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+#container {
+  padding: 25px;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+  #header {
+    margin-bottom: 10px;
+  }
+  
+    #header .title {
+      font-size: 16px;
+    }
+
+#content {
+}
+
+  #content h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
