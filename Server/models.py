@@ -63,37 +63,3 @@ class Person(db.Model, ModelMixin):
   @classmethod
   def _get_memcache_key_for_token(cls, token):
     return "login-%s" % token
-
-
-
-class Project(db.Model, ModelMixin):
-  name = db.StringProperty(required=True)
-  created  = db.DateTimeProperty(auto_now_add=True)
-  owner = db.ReferenceProperty(Person)
-
-  json_properties = [name, created, owner]
-
-
-class Message(db.Model, ModelMixin):
-  body = db.StringProperty(required=True)
-  created = db.DateTimeProperty(auto_now_add=True)
-  index = db.IntegerProperty(required=True)
-  
-  json_properties = [body, index, created]
-
-
-class Count(db.Model):
-  value = db.IntegerProperty(required=True)
-
-  @classmethod
-  def get_value(cls, name):
-    count = cls.get_by_key_name(name)
-    if count:
-      return count.value
-    return 0
-  
-  @classmethod
-  def increment_value(cls, name, delta):
-    count = cls.get_or_insert(name, value=0)
-    count.value += delta
-    count.put()
