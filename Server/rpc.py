@@ -1,3 +1,4 @@
+import logging
 from django.utils import simplejson
 from google.appengine.ext import db
 from models import Person

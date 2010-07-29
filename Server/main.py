@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 import handlers
