@@ -12,8 +12,14 @@
 @interface NSWindow (AMAdditions)
 
 - (BOOL)endEditing;
-
 - (void)makeInitialFirstResponderFirstResponder;
+
+
+// - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)showAlertSheetWithTitle:(NSString *)title 
+                       forError:(NSError *)error 
+                       delegate:(id)modalDelegate 
+                 didEndSelector:(SEL)didEndSelector;
 
 - (void)showAlertSheetWithTitle:(NSString *)title forError:(NSError *)error;
 

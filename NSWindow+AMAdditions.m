@@ -36,10 +36,18 @@
   }  
 }
 
-- (void)showAlertSheetWithTitle:(NSString *)title forError:(NSError *)error
+- (void)showAlertSheetWithTitle:(NSString *)title 
+                       forError:(NSError *)error 
+                       delegate:(id)modalDelegate 
+                 didEndSelector:(SEL)didEndSelector
 {
   NSString *message = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
-  NSBeginAlertSheet(title, @"Done", nil, nil, self, nil, nil, nil, nil, @"%@", message);
+  NSBeginAlertSheet(title, @"Done", nil, nil, self, modalDelegate, didEndSelector, nil, nil, @"%@", message);
+}
+
+- (void)showAlertSheetWithTitle:(NSString *)title forError:(NSError *)error
+{
+  [self showAlertSheetWithTitle:title forError:error delegate:nil didEndSelector:nil];
 }
 
 @end

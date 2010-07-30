@@ -106,7 +106,15 @@
 
 - (void)loginDidFail:(AMSession *)session withError:(NSError *)error
 {
-  [[self windowForSheet] showAlertSheetWithTitle:@"Login failed" forError:error];
+  [[self windowForSheet] showAlertSheetWithTitle:@"Login failed" 
+                                        forError:error 
+                                        delegate:self 
+                                  didEndSelector:@selector(loginFailedSheetDidEnd:returnCode:contextInfo:)];
+}
+
+- (void)loginFailedSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+  [self performSelector:@selector(close) withObject:nil afterDelay:.4f];
 }
 
 #pragma mark -
