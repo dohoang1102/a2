@@ -1,0 +1,21 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/reset.css"/>
+    <link rel="stylesheet" href="/static/display.css"/>
+    <title>a2</title>
+    <style type="text/css" media="screen">
+      {% block style %}{% endblock %}
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div class="title">a2</div>
+      </div>
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
