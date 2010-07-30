@@ -99,6 +99,7 @@
   NSLog(@"AMDispatch » %@%@\n%@", self.url, (retryCount > 0 ? @" (Retry)" : @""), self.parameters);
   
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
+  [request setTimeoutInterval:30.0f];
   [request setCachePolicy:NSURLCacheStorageNotAllowed];
   [request setHTTPMethod:@"POST"];
   if(parameters) {

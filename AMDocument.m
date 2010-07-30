@@ -84,6 +84,11 @@
 
 #pragma mark -
 
+- (void)performLogin
+{
+  [session createWithTarget:self success:@selector(didLogin:) failed:@selector(loginDidFail:withError:)];  
+}
+
 - (void)showLoginSheet
 {
   // This will put modal sheet while fetching essential stuff. later.
@@ -95,8 +100,7 @@
   self.session = [[[AMSession alloc] initWithDispatch:dispatch] autorelease];
   session.login = server.login;
   session.password = server.password;
-  
-  [session createWithTarget:self success:@selector(didLogin:) failed:@selector(loginDidFail:withError:)];
+  [self performLogin];
 }
 
 - (void)didLogin:(AMSession *)sender
@@ -106,15 +110,28 @@
 
 - (void)loginDidFail:(AMSession *)session withError:(NSError *)error
 {
-  [[self windowForSheet] showAlertSheetWithTitle:@"Login failed" 
-                                        forError:error 
-                                        delegate:self 
-                                  didEndSelector:@selector(loginFailedSheetDidEnd:returnCode:contextInfo:)];
+  NSBeginAlertSheet(@"Login failed", 
+                    @"Retry", 
+                    @"Close", 
+                    nil, 
+                    [self windowForSheet], 
+                    self, 
+                    @selector(loginFailedSheetDidEnd:returnCode:contextInfo:), 
+                    nil, 
+                    nil, 
+                    @"%@", 
+                    [[error userInfo] valueForKey:NSLocalizedDescriptionKey]);
 }
 
 - (void)loginFailedSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-  [self performSelector:@selector(close) withObject:nil afterDelay:.4f];
+  if(returnCode == NSOKButton) {
+    // retry
+    [self performLogin];
+  } else {
+    // close
+    [self performSelector:@selector(close) withObject:nil afterDelay:.4f];
+  }
 }
 
 #pragma mark -
@@ -124,6 +141,12 @@
   AMDocumentWindowController *controller = [[AMDocumentWindowController alloc] init];
   [self addWindowController:controller];
   [controller release];
+}
+
+- (void)close
+{
+  [dispatch cancelAllOperations];
+  [super close];
 }
 
 #pragma mark -
